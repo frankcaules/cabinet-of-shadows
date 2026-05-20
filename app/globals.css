@@ -1,0 +1,325 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cabinet-bg: #0B0608;
+  --color-cabinet-ink: #E8DCC4;
+  --color-cabinet-accent: #D4A574;
+  --color-cabinet-rule: rgba(232, 220, 196, 0.18);
+
+  --font-display-default: "EB Garamond", Georgia, serif;
+  --font-body-default: "EB Garamond", Georgia, serif;
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html, body {
+    background: var(--color-bg, var(--color-cabinet-bg));
+    color: var(--color-ink, var(--color-cabinet-ink));
+  }
+
+  body {
+    font-family: var(--font-body, var(--font-body-default));
+    font-feature-settings: "kern", "liga", "onum";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display, var(--font-display-default));
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  a {
+    color: var(--color-accent, var(--color-cabinet-accent));
+    text-underline-offset: 0.18em;
+  }
+
+  ::selection {
+    background: var(--color-accent, var(--color-cabinet-accent));
+    color: var(--color-bg, var(--color-cabinet-bg));
+  }
+
+  hr, .rule {
+    border: 0;
+    border-top: 1px solid var(--color-rule, var(--color-cabinet-rule));
+  }
+
+  /* Fluid type scale */
+  body { font-size: clamp(1rem, 0.5vw + 0.9rem, 1.125rem); }
+  h1   { font-size: clamp(2.5rem, 5vw + 1rem, 6rem); }
+  h2   { font-size: clamp(1.75rem, 2vw + 1rem, 3rem); }
+  h3   { font-size: clamp(1.25rem, 1vw + 0.9rem, 1.75rem); }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-accent, var(--color-cabinet-accent));
+    outline-offset: 3px;
+  }
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-bg, var(--color-cabinet-bg));
+  color: var(--color-ink, var(--color-cabinet-ink));
+  border: 1px solid var(--color-accent, var(--color-cabinet-accent));
+  font-family: var(--font-body, var(--font-body-default));
+  transition: top 150ms ease-out;
+}
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+/* ---------- Audio toggle ---------- */
+.audio-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 110;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-accent, var(--color-cabinet-accent));
+  border: 1px solid var(--color-rule, var(--color-cabinet-rule));
+  border-radius: 9999px;
+  font-family: var(--font-display, var(--font-display-default));
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+.audio-toggle:hover {
+  border-color: var(--color-accent, var(--color-cabinet-accent));
+}
+.audio-toggle:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Critical layout (load order matters for CLS) ----------
+   These rules need to land in the same stylesheet that ships with the
+   first paint so the hero and dossier reserve their final space and we
+   don't pay a 0.5+ CLS penalty when component-level <style> blocks load. */
+.dossier {
+  contain: layout;
+  max-width: 100%;
+  min-height: 100dvh;
+  padding: 0 1.25rem 6rem;
+  margin: 0 auto;
+}
+.dossier__hero {
+  min-height: 92dvh;
+}
+.dossier__visage figure,
+.dossier__visage .visage--placeholder {
+  aspect-ratio: 3 / 4;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+.dossier__visage { margin: 5rem auto; }
+.dossier__section { margin: 5rem auto; }
+/* Lock per-section measure so dossier text width is set on first paint */
+.dossier > section:not(.dossier__hero):not(.dossier__visage),
+.dossier > .dossier__visage {
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dossier > .dossier__hero {
+  max-width: 100%;
+}
+
+/* ---------- Per-monster drop cap ---------- */
+/* Canonical treatment — used by Legend, Anxiety, and Clinical Note
+   sections. Each picks up the per-monster display font and accent
+   colour via CSS variables, with a faint accent-coloured glow that
+   reads as candlelight on dark backgrounds. */
+.dossier__prose p:first-of-type::first-letter {
+  font-family: var(--font-display, var(--font-display-default));
+  font-size: 3.8em;
+  float: left;
+  line-height: 0.88;
+  margin: 0.05em 0.16em -0.05em 0;
+  color: var(--color-accent, var(--color-cabinet-accent));
+  text-shadow:
+    0 0 18px color-mix(in srgb, var(--color-accent, var(--color-cabinet-accent)) 35%, transparent),
+    0 1px 0 rgba(0, 0, 0, 0.25);
+  font-feature-settings: "ss01", "kern";
+}
+
+/* The Anxiety section overrides drop-cap colour to the candlelight tone,
+   keeping its visual identity distinct from Legend and Clinical Note. */
+.dossier__section--anxiety .dossier__prose p:first-of-type::first-letter {
+  color: var(--color-candlelight, var(--color-accent, var(--color-cabinet-accent)));
+  text-shadow:
+    0 0 14px color-mix(in srgb, var(--color-candlelight, var(--color-accent)) 30%, transparent),
+    0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- Per-monster scope blocks ---------- */
+
+[data-monster="dracula"] {
+  --color-bg: #0B0608;
+  --color-accent: #5C0A0A;
+  --color-ink: #E8DCC4;
+  --color-rule: rgba(212, 165, 116, 0.25);
+  --color-candlelight: #D4A574;
+  --font-display: "UnifrakturMaguntia", "EB Garamond", serif;
+  --font-body: "EB Garamond", Georgia, serif;
+  --font-accent: "Cormorant Garamond", Georgia, serif;
+}
+
+[data-monster="the-creature"] {
+  --color-bg: #0F1411;
+  --color-accent: #6B8064;
+  --color-ink: #E5DDC8;
+  --color-rule: rgba(184, 212, 216, 0.22);
+  --color-candlelight: #B8D4D8;
+  --font-display: "Cormorant Unicase", "EB Garamond", serif;
+  --font-body: "EB Garamond", Georgia, serif;
+  --font-accent: "Special Elite", ui-monospace, monospace;
+}
+
+[data-monster="hyde"] {
+  --color-bg: #13140E;
+  --color-accent: #6B8E4E;
+  --color-ink: #EDE6D3;
+  --color-rule: rgba(122, 28, 28, 0.32);
+  --color-candlelight: #7A1C1C;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Lora", Georgia, serif;
+  --font-accent: "IM Fell DW Pica", "Lora", Georgia, serif;
+}
+
+[data-monster="the-wolf"] {
+  --color-bg: #10140C;
+  --color-accent: #7C6CA8;
+  --color-ink: #E2DCC8;
+  --color-rule: rgba(217, 217, 217, 0.22);
+  --color-candlelight: #D9D9D9;
+  --font-display: "Pirata One", "Cinzel", serif;
+  --font-body: "Crimson Pro", Georgia, serif;
+  --font-accent: "Germania One", "Pirata One", serif;
+}
+
+[data-monster="griffin"] {
+  --color-bg: #14130E;
+  --color-accent: #C9A86A;
+  --color-ink: #E8E0D0;
+  --color-rule: rgba(255, 255, 255, 0.12);
+  --color-candlelight: #C9A86A;
+  --font-display: "Abril Fatface", Georgia, serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-accent: "Source Serif 4", Georgia, serif;
+}
+
+[data-monster="carmilla"] {
+  --color-bg: #0D0510;
+  --color-accent: #B58AB0;
+  --color-ink: #DDD3E8;
+  --color-rule: rgba(180, 130, 175, 0.25);
+  --color-candlelight: #D4A5A5;
+  --font-display: "Italiana", Georgia, serif;
+  --font-body: "Cormorant Garamond", Georgia, serif;
+  --font-accent: "Pinyon Script", "Cormorant Garamond", cursive;
+}
+
+[data-monster="erik"] {
+  --color-bg: #050811;
+  --color-accent: #BFA34A;
+  --color-ink: #F1EAD8;
+  --color-rule: rgba(107, 15, 26, 0.45);
+  --color-candlelight: #BFA34A;
+  --font-display: "Cormorant SC", Georgia, serif;
+  --font-body: "Lora", Georgia, serif;
+  --font-accent: "Cormorant Garamond", Georgia, serif;
+}
+
+[data-monster="dorian"] {
+  --color-bg: #1A1410;
+  --color-accent: #B89D4F;
+  --color-ink: #F0E8D5;
+  --color-rule: rgba(184, 85, 99, 0.35);
+  --color-candlelight: #B85563;
+  --font-display: "Bodoni Moda", Georgia, serif;
+  --font-body: "Cormorant Garamond", Georgia, serif;
+  --font-accent: "Playfair Display", Georgia, serif;
+}
+
+[data-monster="varney"] {
+  --color-bg: #14110C;
+  --color-accent: #A02020;
+  --color-ink: #D4C896;
+  --color-rule: rgba(107, 114, 128, 0.4);
+  --color-candlelight: #D4C896;
+  --font-display: "IM Fell English", Georgia, serif;
+  --font-body: "IM Fell DW Pica", Georgia, serif;
+  --font-accent: "IM Fell Double Pica SC", "IM Fell English", Georgia, serif;
+}
+
+[data-monster="sweeney"] {
+  --color-bg: #131210;
+  --color-accent: #9C1B1B;
+  --color-ink: #D2A86A;
+  --color-rule: rgba(212, 155, 61, 0.35);
+  --color-candlelight: #D49B3D;
+  --font-display: "Limelight", "Playfair Display", Georgia, serif;
+  --font-body: "Libre Caslon Text", Georgia, serif;
+  --font-accent: "Libre Caslon Text", Georgia, serif;
+}
+
+[data-monster="jack"] {
+  --color-bg: #15161A;
+  --color-accent: #4A8BCC;
+  --color-ink: #E3B23C;
+  --color-rule: rgba(61, 61, 69, 0.55);
+  --color-candlelight: #E3B23C;
+  --font-display: "Modak", "Playfair Display", Georgia, serif;
+  --font-body: "Newsreader", Georgia, serif;
+  --font-accent: "Newsreader", Georgia, serif;
+}
+
+[data-monster="golem"] {
+  --color-bg: #1A1610;
+  --color-accent: #9C7B4A;
+  --color-ink: #E8DCC4;
+  --color-rule: rgba(42, 42, 92, 0.4);
+  --color-candlelight: #C9A86A;
+  --font-display: "Frank Ruhl Libre", "Cardo", Georgia, serif;
+  --font-body: "Cardo", Georgia, serif;
+  --font-accent: "Frank Ruhl Libre", "Cardo", Georgia, serif;
+}
+
+[data-monster="horseman"] {
+  --color-bg: #14100B;
+  --color-accent: #D9601A;
+  --color-ink: #E8D9B8;
+  --color-rule: rgba(139, 74, 44, 0.45);
+  --color-candlelight: #D9601A;
+  --font-display: "Old Standard TT", Georgia, serif;
+  --font-body: "Old Standard TT", Georgia, serif;
+  --font-accent: "Old Standard TT", Georgia, serif;
+}
+
