@@ -11,7 +11,7 @@ export const dracula: Monster = {
   status: "full",
   slug: "dracula",
   name: "เคานต์แดรกคูล่า",
-  epithet: "เคานต์แห่งวอลเลเชีย",
+  epithet: "เคานต์แห่งทรานซิลเวเนีย",
   source: {
     title: "Dracula",
     author: "Bram Stoker",
