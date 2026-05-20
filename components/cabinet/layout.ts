@@ -1,5 +1,5 @@
-import { FULL_MONSTERS } from "@/lib/data/monsters";
-import type { Monster } from "@/lib/data/types";
+import { LOCALIZED_MONSTERS } from "@/lib/data/monsters";
+import type { Monster, Locale } from "@/lib/data/types";
 
 export interface CabinetSlot {
   monster: Monster;
@@ -41,9 +41,10 @@ const RAW: Array<{ slug: string; x: number; y: number; z: number; r: number; s: 
   { slug: "horseman",     x:  3.2, y:  2.8, z: -2.4, r:  0.02, s: 0.88 },
 ];
 
-export function getCabinetSlots(): CabinetSlot[] {
+export function getCabinetSlots(locale: Locale = "en"): CabinetSlot[] {
   return RAW.map((r) => {
-    const monster = FULL_MONSTERS[r.slug];
+    const entry = LOCALIZED_MONSTERS[r.slug];
+    const monster = entry?.[locale] ?? entry?.en;
     if (!monster) throw new Error(`Cabinet layout references missing monster: ${r.slug}`);
     return {
       monster,

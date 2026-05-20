@@ -1,8 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { Locale } from "@/lib/data/types";
 
 const STORAGE_KEY = "cos.intro.seen";
+
+const COPY: Record<Locale, { eyebrow: string; title: string; body: string; small: string; cta: string }> = {
+  en: {
+    eyebrow: "A note from the alienist",
+    title: "What you are reading",
+    body: "This is a casebook — part literary essay, part clinical assessment. Each entry pairs a monster of Gothic literature with the real psychological phenomenon they make legible. The footnotes are real and link to the source papers.",
+    small: "Use the numerals at the right edge to navigate the four chapters. Audio is off by default; the toggle is in the corner.",
+    cta: "begin the case",
+  },
+  th: {
+    eyebrow: "บันทึกจากอลีนิสต์",
+    title: "ท่านกำลังอ่านสิ่งใด",
+    body: "เอกสารฉบับนี้เป็นแฟ้มคดี — ส่วนหนึ่งคือบทวิจารณ์วรรณกรรม อีกส่วนคือการประเมินผลทางคลินิก แต่ละสำนวนจับคู่ปีศาจของวรรณกรรมกอธิคเข้ากับปรากฏการณ์ทางจิตวิทยาที่ผู้ป่วยนั้นเปิดเผยให้เห็น เชิงอรรถทั้งหมดเป็นของจริงและเชื่อมโยงไปยังเอกสารต้นทาง",
+    small: "ใช้เลขโรมันที่ขอบขวาในการนำทางทั้งสี่บท เสียงปิดอยู่เป็นค่าตั้งต้น สวิตช์อยู่ที่มุมจอ",
+    cta: "เริ่มสำนวน",
+  },
+};
 
 /**
  * IntroCard — the alienist's one-time orientation note.
@@ -12,7 +30,8 @@ const STORAGE_KEY = "cos.intro.seen";
  * resurfaces. Skipped entirely if reduced-motion users press tab — fully
  * keyboard accessible.
  */
-export function IntroCard() {
+export function IntroCard({ locale = "en" }: { locale?: Locale }) {
+  const copy = COPY[locale];
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -44,19 +63,12 @@ export function IntroCard() {
   return (
     <div className="intro-card" role="dialog" aria-labelledby="intro-card-title" aria-modal="false">
       <div className="intro-card__inner">
-        <p className="intro-card__eyebrow">A note from the alienist</p>
-        <h2 id="intro-card-title" className="intro-card__title">What you are reading</h2>
-        <p className="intro-card__body">
-          This is a casebook — part literary essay, part clinical assessment. Each entry pairs a
-          monster of Gothic literature with the real psychological phenomenon they make legible.
-          The footnotes are real and link to the source papers.
-        </p>
-        <p className="intro-card__body intro-card__body--small">
-          Use the numerals at the right edge to navigate the four chapters. Audio is off by
-          default; the toggle is in the corner.
-        </p>
+        <p className="intro-card__eyebrow">{copy.eyebrow}</p>
+        <h2 id="intro-card-title" className="intro-card__title">{copy.title}</h2>
+        <p className="intro-card__body">{copy.body}</p>
+        <p className="intro-card__body intro-card__body--small">{copy.small}</p>
         <button type="button" onClick={dismiss} className="intro-card__close">
-          begin the case
+          {copy.cta}
         </button>
       </div>
 

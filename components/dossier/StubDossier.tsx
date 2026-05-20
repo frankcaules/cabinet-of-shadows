@@ -1,7 +1,8 @@
 import Link from "next/link";
-import type { MonsterStub } from "@/lib/data/types";
+import type { MonsterStub, Locale } from "@/lib/data/types";
+import { t } from "@/lib/i18n/messages";
 
-export function StubDossier({ monster }: { monster: MonsterStub }) {
+export function StubDossier({ monster, locale = "en" }: { monster: MonsterStub; locale?: Locale }) {
   return (
     <article id="main" className="stub-dossier">
       <p className="stub-dossier__eyebrow">Case file: {monster.slug.toUpperCase()}</p>
@@ -10,11 +11,9 @@ export function StubDossier({ monster }: { monster: MonsterStub }) {
       <p className="stub-dossier__source">
         From <cite>{monster.source.title}</cite> — {monster.source.author}, {monster.source.year}.
       </p>
-      <p className="stub-dossier__lede">
-        This dossier is in preparation. The alienist's notes for this patient have not yet been transcribed and bound.
-      </p>
+      <p className="stub-dossier__lede">{t(locale, "stubLede")}</p>
       <p className="stub-dossier__return">
-        <Link href="/">— return to the Cabinet —</Link>
+        <Link href={`/${locale}`}>— {t(locale, "stubReturn")} —</Link>
       </p>
 
       <style>{`

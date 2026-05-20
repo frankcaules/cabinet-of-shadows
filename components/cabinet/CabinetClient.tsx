@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useReducedMotion } from "@/components/a11y/MotionProvider";
 import { CabinetFallback } from "./CabinetFallback";
 import { CabinetKeyboardList } from "./CabinetKeyboardList";
+import type { Locale } from "@/lib/data/types";
+import { t } from "@/lib/i18n/messages";
 
 // Display fonts for the 13 monsters' hover labels in the 3D scene.
 // These ship only with the Cabinet client bundle (i.e. only on `/`).
@@ -33,6 +35,7 @@ interface CabinetClientProps {
   title: string;
   lede: string;
   small: string;
+  locale?: Locale;
 }
 
 function detectWebGL(): boolean {
@@ -52,7 +55,7 @@ function detectWebGL(): boolean {
  * prefers-reduced-motion and WebGL availability. Renders the
  * shared backdrop, foreground text, and CTAs in both cases.
  */
-export function CabinetClient({ title, lede, small }: CabinetClientProps) {
+export function CabinetClient({ title, lede, small, locale = "en" }: CabinetClientProps) {
   const reduced = useReducedMotion();
   const [webgl, setWebgl] = useState<boolean | null>(null);
 
@@ -68,12 +71,12 @@ export function CabinetClient({ title, lede, small }: CabinetClientProps) {
       <div className="cabinet-stage__backdrop" aria-hidden="true" />
       <div className="cabinet-stage__veil" aria-hidden="true" />
 
-      {decided && (use3D ? <Cabinet3D /> : <CabinetFallback />)}
+      {decided && (use3D ? <Cabinet3D locale={locale} /> : <CabinetFallback locale={locale} />)}
 
       {/* Parallel keyboard-accessible patient list — visually hidden
           unless a card is focused. Always present, so screen reader
           users get a complete navigation even when WebGL is active. */}
-      {use3D && <CabinetKeyboardList />}
+      {use3D && <CabinetKeyboardList locale={locale} />}
 
       <div className="cabinet-stage__overlay">
         <header className="cabinet-stage__top">
@@ -86,13 +89,13 @@ export function CabinetClient({ title, lede, small }: CabinetClientProps) {
         <footer className="cabinet-stage__bottom">
           <p className="cabinet-stage__lede">{lede}</p>
           <nav className="cabinet-stage__meta" aria-label="Cabinet meta">
-            <Link href="/the-alienist">about the alienist</Link>
+            <Link href={`/${locale}/the-alienist`}>{t(locale, "homeNavAlienist")}</Link>
             <span aria-hidden="true"> · </span>
-            <Link href="/sources">bibliography</Link>
+            <Link href={`/${locale}/sources`}>{t(locale, "homeNavSources")}</Link>
           </nav>
           {use3D && (
             <p className="cabinet-stage__hint" aria-live="polite">
-              hover an object to identify · click to open the case
+              {t(locale, "homeHint")}
             </p>
           )}
         </footer>
@@ -214,6 +217,41 @@ export function CabinetClient({ title, lede, small }: CabinetClientProps) {
         @media (max-width: 720px) {
           .cabinet-stage__overlay {
             padding: 3rem 1rem 1.5rem;
+          }
+        }
+        /* Mobile landscape (812x375-ish): the 3D scene fills the middle row,
+           so the title can't grow past ~2.5rem without crashing into the
+           sigils, and the lede needs to stay short and dense. Drop the hint
+           text since the row is already crowded. */
+        @media (orientation: landscape) and (max-height: 480px) {
+          .cabinet-stage__overlay {
+            padding: 0.6rem 1rem 0.6rem;
+            grid-template-rows: auto 1fr auto;
+            gap: 0.4rem;
+          }
+          .cabinet-stage__top {
+            gap: 0.15rem;
+          }
+          .cabinet-stage__eyebrow {
+            font-size: 0.6rem;
+            letter-spacing: 0.26em;
+          }
+          .cabinet-stage__title {
+            font-size: clamp(1.5rem, 4vw, 2.4rem);
+            line-height: 1.0;
+          }
+          .cabinet-stage__lede {
+            font-size: 0.78rem;
+            line-height: 1.35;
+            max-width: 32rem;
+          }
+          .cabinet-stage__meta {
+            margin-top: 0.2rem;
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+          }
+          .cabinet-stage__hint {
+            display: none;
           }
         }
       `}</style>

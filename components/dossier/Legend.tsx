@@ -1,9 +1,12 @@
-export function Legend({ paragraphs }: { paragraphs: string[] }) {
+import type { Locale } from "@/lib/data/types";
+import { t } from "@/lib/i18n/messages";
+
+export function Legend({ paragraphs, locale = "en" }: { paragraphs: string[]; locale?: Locale }) {
   return (
     <section aria-labelledby="dossier-legend" className="dossier__section">
       <header className="dossier__section-head">
         <p className="dossier__section-num">I.</p>
-        <h2 id="dossier-legend" className="dossier__section-title">The Legend</h2>
+        <h2 id="dossier-legend" className="dossier__section-title">{t(locale, "sectionLegend")}</h2>
       </header>
       <div className="dossier__prose">
         {paragraphs.map((p, i) => (

@@ -6,12 +6,14 @@ import { useFrame } from "@react-three/fiber";
 import { Html, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import type { CabinetSlot } from "./layout";
+import type { Locale } from "@/lib/data/types";
 
 interface MonsterObjectProps {
   slot: CabinetSlot;
   /** Index in the 13-element list; used to stagger the idle bob phase. */
   index: number;
   reduced: boolean;
+  locale?: Locale;
 }
 
 /**
@@ -23,7 +25,7 @@ interface MonsterObjectProps {
  *  - lift + scale on hover; click navigates to the dossier
  *  - subtle bob driven by useFrame, phase-shifted by index
  */
-export function MonsterObject({ slot, index, reduced }: MonsterObjectProps) {
+export function MonsterObject({ slot, index, reduced, locale = "en" }: MonsterObjectProps) {
   const router = useRouter();
   const groupRef = useRef<THREE.Group>(null);
   const glowRef = useRef<THREE.Mesh>(null);
@@ -69,7 +71,7 @@ export function MonsterObject({ slot, index, reduced }: MonsterObjectProps) {
     e.stopPropagation();
     setPressed(true);
     // Tiny press feedback before navigation
-    setTimeout(() => router.push(`/dossier/${slot.monster.slug}`), 120);
+    setTimeout(() => router.push(`/${locale}/dossier/${slot.monster.slug}`), 120);
   }
 
   return (

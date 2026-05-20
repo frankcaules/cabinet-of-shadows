@@ -100,3 +100,49 @@ export interface MonsterStub {
 }
 
 export type MonsterEntry = Monster | MonsterStub;
+
+// ------- i18n -----------
+export const LOCALES = ["en", "th"] as const;
+export type Locale = (typeof LOCALES)[number];
+export const DEFAULT_LOCALE: Locale = "en";
+
+/**
+ * LocalizedMonster — a monster's translatable content keyed by locale.
+ * Untranslatable fields (slug, palette, typography, sigil, audio, transition)
+ * live at the top level. Translatable fields (name, epithet, source.title,
+ * source.author wording, sourceQuote, legend, anxiety, clinicalNote, diagnosis)
+ * are nested under `content[locale]`.
+ *
+ * Falls back to English when a Thai translation is missing.
+ */
+export interface MonsterContent {
+  name: string;
+  epithet: string;
+  source: { title: string; author: string; year: number };
+  sourceQuote: string;
+  legend: string[];
+  anxiety: string[];
+  clinicalNote: ClinicalNote;
+  diagnosis: Diagnosis;
+}
+
+export interface LocalizedMonster {
+  status: "full";
+  slug: string;
+  palette: PaletteTokens;
+  typography: TypographyTokens;
+  transition: TransitionId;
+  audio: MonsterAudio;
+  sigil: string;
+  content: Partial<Record<Locale, MonsterContent>>;
+}
+
+export interface LocalizedMonsterStub {
+  status: "stub";
+  slug: string;
+  palette: PaletteTokens;
+  typography: TypographyTokens;
+  transition: TransitionId;
+  sigil: string;
+  content: Partial<Record<Locale, Pick<MonsterContent, "name" | "epithet" | "source">>>;
+}

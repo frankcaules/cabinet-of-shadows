@@ -29,7 +29,8 @@ export function TransitionLayer() {
 
   if (!activePath) return null;
 
-  const match = activePath.match(/^\/dossier\/([^/]+)/);
+  // Match /<locale>/dossier/<slug> or legacy /dossier/<slug>
+  const match = activePath.match(/^(?:\/(?:en|th))?\/dossier\/([^/]+)/);
   const slug = match?.[1];
   const monster = slug ? getMonster(slug) : null;
   const TransitionComponent = monster ? TRANSITION_REGISTRY[monster.transition] : undefined;

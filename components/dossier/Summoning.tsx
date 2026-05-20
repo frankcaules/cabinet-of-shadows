@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { Monster } from "@/lib/data/types";
+import type { Monster, Locale } from "@/lib/data/types";
+import { t } from "@/lib/i18n/messages";
 import { useReducedMotion } from "@/components/a11y/MotionProvider";
 
 /**
@@ -23,7 +24,7 @@ const HERO_VIDEOS: Record<string, string> = {
  * source attribution, and (if available) a subtly looped atmospheric
  * video behind the quote at low opacity.
  */
-export function Summoning({ monster }: { monster: Monster }) {
+export function Summoning({ monster, locale = "en" }: { monster: Monster; locale?: Locale }) {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reduced = useReducedMotion();
@@ -76,7 +77,7 @@ export function Summoning({ monster }: { monster: Monster }) {
       )}
       <div className="dossier__hero-veil" aria-hidden="true" />
 
-      <p className="dossier__hero-eyebrow">From the casebook of the alienist · Subject {String(monster.source.year).slice(-2)}</p>
+      <p className="dossier__hero-eyebrow">{t(locale, "eyebrowSubject", { n: String(monster.source.year).slice(-2) })}</p>
 
       <div
         className="dossier__hero-sigil"
@@ -118,7 +119,7 @@ export function Summoning({ monster }: { monster: Monster }) {
         <cite className="dossier__hero-cite">— {monster.source.author}, <em>{monster.source.title}</em> ({monster.source.year})</cite>
       </blockquote>
 
-      <p className="dossier__hero-scroll" aria-hidden="true">scroll to begin the case</p>
+      <p className="dossier__hero-scroll" aria-hidden="true">{t(locale, "scrollHint")}</p>
 
       <style>{`
         .dossier__hero {
@@ -238,6 +239,37 @@ export function Summoning({ monster }: { monster: Monster }) {
         @media (prefers-reduced-motion: reduce) {
           .dossier__hero-scroll { animation: none; opacity: 0.5; }
           .dossier__hero-video { display: none; }
+        }
+        /* Mobile landscape (812x375-ish): compact every vertical element
+           so the hero fits the short viewport without forcing a scroll. */
+        @media (orientation: landscape) and (max-height: 480px) {
+          .dossier__hero {
+            min-height: 100dvh;
+            padding: 1.25rem 1.25rem 1rem;
+            gap: 0.4rem;
+          }
+          .dossier__hero-eyebrow {
+            font-size: 0.62rem;
+            letter-spacing: 0.26em;
+          }
+          .dossier__hero-sigil {
+            width: 3.25rem;
+            height: 3.25rem;
+            margin: 0.1rem auto 0.4rem;
+          }
+          .dossier__hero-quote {
+            font-size: clamp(0.95rem, 1.6vw + 0.55rem, 1.25rem);
+            line-height: 1.3;
+            max-width: 30rem;
+          }
+          .dossier__hero-cite {
+            margin-top: 0.75rem;
+            font-size: 0.6rem;
+          }
+          .dossier__hero-scroll {
+            margin-top: 0.9rem;
+            font-size: 0.65rem;
+          }
         }
         .sr-only {
           position: absolute !important;

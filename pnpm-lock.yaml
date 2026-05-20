@@ -77,6 +77,9 @@ importers:
       '@fontsource/playfair-display':
         specifier: ^5.2.8
         version: 5.2.8
+      '@fontsource/sarabun':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@fontsource/source-serif-4':
         specifier: ^5.2.9
         version: 5.2.9
@@ -300,6 +303,9 @@ packages:
 
   '@fontsource/playfair-display@5.2.8':
     resolution: {integrity: sha512-fUEhib70SszNhQVsGbUMSsWJhr7Je0rdeuZdtGpDNu0GKF1xJM8QhpI/y0pckU25GcChXm9TLOmeZupkvvZo2g==}
+
+  '@fontsource/sarabun@5.2.8':
+    resolution: {integrity: sha512-EDf1jYaGmdeOOi3dKqy6Bjb+qPtsrJJyleoqAPq+VgStcJExwhqzYRT9HOeGE73RtfmvgJEdxk1W72EdxL6+ow==}
 
   '@fontsource/source-serif-4@5.2.9':
     resolution: {integrity: sha512-er/Pym9emsEVJNf947umJ4kXarXfsiN6CN7kTYinefKRaHLwiquiiHOZvKvxWgkV8JMCf3pV3g0NcsPFpVCH9w==}
@@ -2680,6 +2686,8 @@ snapshots:
   '@fontsource/pirata-one@5.2.8': {}
 
   '@fontsource/playfair-display@5.2.8': {}
+
+  '@fontsource/sarabun@5.2.8': {}
 
   '@fontsource/source-serif-4@5.2.9': {}
 

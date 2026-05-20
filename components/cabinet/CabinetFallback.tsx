@@ -2,22 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { FULL_MONSTERS } from "@/lib/data/monsters";
+import { listMonsters } from "@/lib/data/monsters";
+import type { Locale } from "@/lib/data/types";
 
 /**
  * Accessible static grid for users without WebGL or with prefers-reduced-motion.
  * Same visual identity as the 3D Cabinet, just laid out as a calm grid of
  * sigil cards.
  */
-export function CabinetFallback() {
-  const monsters = Object.values(FULL_MONSTERS);
+export function CabinetFallback({ locale = "en" }: { locale?: Locale }) {
+  const monsters = listMonsters(locale).filter((m) => m.status === "full");
   return (
     <div className="cabinet-fallback">
       <ol>
         {monsters.map((m) => (
           <li key={m.slug}>
             <Link
-              href={`/dossier/${m.slug}`}
+              href={`/${locale}/dossier/${m.slug}`}
               className="cabinet-fallback__card"
               style={{
                 ["--card-accent" as string]: m.palette.accent,

@@ -1,4 +1,4 @@
-import type { Monster } from "@/lib/data/types";
+import type { Monster, Locale } from "@/lib/data/types";
 import { Summoning } from "./Summoning";
 import { CitationHeader } from "./CitationHeader";
 import { Visage } from "./Visage";
@@ -108,25 +108,25 @@ const SCENE_BREAKS: Record<string, { src: string; alt: string; width: number; he
   },
 };
 
-export function DossierShell({ monster }: { monster: Monster }) {
+export function DossierShell({ monster, locale = "en" }: { monster: Monster; locale?: Locale }) {
   const sceneBreak = SCENE_BREAKS[monster.slug];
 
   return (
     <main id="main" data-monster={monster.slug}>
       <DossierParticles slug={monster.slug} accent={monster.palette.accent} />
-      <ChapterIndex />
-      <IntroCard />
+      <ChapterIndex locale={locale} />
+      <IntroCard locale={locale} />
 
       <article className="dossier" aria-label={`The case of ${monster.name}`}>
-        <Summoning monster={monster} />
+        <Summoning monster={monster} locale={locale} />
         <CitationHeader monster={monster} />
         <Visage monster={monster} />
-        <Legend paragraphs={monster.legend} />
-        <Anxiety paragraphs={monster.anxiety} />
+        <Legend paragraphs={monster.legend} locale={locale} />
+        <Anxiety paragraphs={monster.anxiety} locale={locale} />
         {sceneBreak && <SceneBreak {...sceneBreak} />}
-        <ClinicalNote note={monster.clinicalNote} />
-        <DiagnosisCard diagnosis={monster.diagnosis} />
-        <ExitLine />
+        <ClinicalNote note={monster.clinicalNote} locale={locale} />
+        <DiagnosisCard diagnosis={monster.diagnosis} locale={locale} />
+        <ExitLine locale={locale} />
       </article>
 
       <style>{`
@@ -144,13 +144,13 @@ export function DossierShell({ monster }: { monster: Monster }) {
         .dossier > .dossier__hero {
           max-width: 100%;
         }
-        :global(.cos-particles) {
+        .cos-particles {
           position: fixed;
           inset: 0;
           pointer-events: none;
           z-index: 1;
         }
-        :global(.cos-particles canvas) {
+        .cos-particles canvas {
           display: block;
           width: 100% !important;
           height: 100% !important;

@@ -1,4 +1,4 @@
-import type { Monster, MonsterEntry, MonsterStub } from "./types";
+import type { Monster, MonsterEntry, MonsterStub, Locale } from "./types";
 import { dracula } from "./monsters/dracula";
 import { theCreature } from "./monsters/the-creature";
 import { hyde } from "./monsters/hyde";
@@ -13,6 +13,9 @@ import { jack } from "./monsters/jack";
 import { golem } from "./monsters/golem";
 import { horseman } from "./monsters/horseman";
 import { STUBS } from "./monsters/_stubs";
+
+// Thai variants — partial set; missing entries fall back to English.
+import { dracula as draculaTh } from "./monsters/dracula.th";
 
 export const FULL_MONSTERS: Record<string, Monster> = {
   dracula,
@@ -30,23 +33,48 @@ export const FULL_MONSTERS: Record<string, Monster> = {
   horseman,
 };
 
+/**
+ * Localized monster registry, keyed by slug then locale.
+ * Missing locale entries fall back to English via getMonster().
+ */
+export const LOCALIZED_MONSTERS: Record<string, Partial<Record<Locale, Monster>>> = {
+  dracula: { en: dracula, th: draculaTh },
+  "the-creature": { en: theCreature },
+  hyde: { en: hyde },
+  "the-wolf": { en: theWolf },
+  griffin: { en: griffin },
+  carmilla: { en: carmilla },
+  erik: { en: erik },
+  dorian: { en: dorian },
+  varney: { en: varney },
+  sweeney: { en: sweeney },
+  jack: { en: jack },
+  golem: { en: golem },
+  horseman: { en: horseman },
+};
+
 export const STUB_MONSTERS: Record<string, MonsterStub> = Object.fromEntries(
   STUBS.map((stub) => [stub.slug, stub]),
 );
 
-export function getMonster(slug: string): MonsterEntry | null {
-  if (slug in FULL_MONSTERS) return FULL_MONSTERS[slug];
+/**
+ * Look up a monster by slug, returning the requested locale variant
+ * when available. Falls back to English when a Thai translation is missing.
+ */
+export function getMonster(slug: string, locale: Locale = "en"): MonsterEntry | null {
+  const entry = LOCALIZED_MONSTERS[slug];
+  if (entry) return entry[locale] ?? entry.en ?? null;
   if (slug in STUB_MONSTERS) return STUB_MONSTERS[slug];
   return null;
 }
 
 export function getAllSlugs(): string[] {
-  return [...Object.keys(FULL_MONSTERS), ...Object.keys(STUB_MONSTERS)];
+  return [...Object.keys(LOCALIZED_MONSTERS), ...Object.keys(STUB_MONSTERS)];
 }
 
-export function listMonsters(): MonsterEntry[] {
-  return [
-    ...Object.values(FULL_MONSTERS),
-    ...Object.values(STUB_MONSTERS),
-  ];
+export function listMonsters(locale: Locale = "en"): MonsterEntry[] {
+  const full = Object.keys(LOCALIZED_MONSTERS)
+    .map((slug) => LOCALIZED_MONSTERS[slug][locale] ?? LOCALIZED_MONSTERS[slug].en)
+    .filter((m): m is Monster => !!m);
+  return [...full, ...Object.values(STUB_MONSTERS)];
 }

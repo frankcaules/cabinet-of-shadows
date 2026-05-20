@@ -68,7 +68,7 @@ import "@fontsource/old-standard-tt/700.css";
 
 interface LayoutProps {
   children: ReactNode;
-  params: Promise<{ monster: string }>;
+  params: Promise<{ locale: string; monster: string }>;
 }
 
 export default async function DossierLayout({ children, params }: LayoutProps) {

@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Link from "next/link";
-import { FULL_MONSTERS } from "@/lib/data/monsters";
-import type { Citation, Monster } from "@/lib/data/types";
+import { listMonsters } from "@/lib/data/monsters";
+import { LOCALES, type Citation, type Locale, type Monster } from "@/lib/data/types";
+import { t } from "@/lib/i18n/messages";
 
-export const metadata: Metadata = {
-  title: "The Bibliography — The Cabinet of Shadows",
-  description:
-    "Every citation in the Cabinet, grouped by case. Real peer-reviewed sources with DOI links where available.",
-};
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
 
 function formatCitation(c: Citation): string {
   const parts = [`${c.authors} (${c.year}).`, c.title.endsWith(".") ? c.title : `${c.title}.`];
@@ -24,9 +23,10 @@ interface Section {
   citations: readonly Citation[];
 }
 
-function gatherSections(): Section[] {
+function gatherSections(locale: Locale): Section[] {
   const out: Section[] = [];
-  for (const m of Object.values(FULL_MONSTERS)) {
+  for (const m of listMonsters(locale)) {
+    if (m.status !== "full") continue;
     out.push({
       slug: m.slug,
       name: m.name,
@@ -38,22 +38,34 @@ function gatherSections(): Section[] {
   return out;
 }
 
-export default function SourcesPage() {
-  const sections = gatherSections();
+const CASE_LABEL: Record<Locale, string> = { en: "Case", th: "สำนวนที่" };
+const APA_NOTE: Record<Locale, string> = {
+  en: "References are formatted in APA 7 with minor concessions to the alienist's antiquarian eye. Where a DOI is published, it is linked; readers who wish to consult the originals will find that most academic libraries carry them and that the open-access ones are marked.",
+  th: "การอ้างอิงจัดรูปแบบตามมาตรฐาน APA 7 พร้อมการปรับเล็กน้อยให้สอดคล้องกับสายตาผู้นิยมโบราณวัตถุของอลีนิสต์ ที่ใดมีการเผยแพร่หมายเลข DOI ที่นั่นมีลิงก์ ผู้อ่านที่ต้องการตรวจสอบต้นฉบับสามารถสืบค้นได้จากห้องสมุดวิชาการส่วนใหญ่ ส่วนแหล่งที่เป็น open-access ก็ได้ระบุไว้",
+};
+const FROM_PREP: Record<Locale, string> = { en: "from", th: "จาก" };
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function SourcesPage({ params }: PageProps) {
+  const { locale: rawLocale } = await params;
+  if (!LOCALES.includes(rawLocale as Locale)) notFound();
+  const locale = rawLocale as Locale;
+  const sections = gatherSections(locale);
   const totalCitations = sections.reduce((acc, s) => acc + s.citations.length, 0);
 
   return (
     <main id="main" className="sources">
       <header className="sources__header">
-        <p className="sources__eyebrow">The Cabinet of Shadows</p>
-        <h1 className="sources__title">The Bibliography</h1>
+        <p className="sources__eyebrow">{t(locale, "siteTitle")}</p>
+        <h1 className="sources__title">{t(locale, "sourcesTitle")}</h1>
         <p className="sources__lede">
-          Every clinical claim in this casebook is anchored to a real peer-reviewed source. The
-          alienist's prose is original; the science he draws on is not. {totalCitations} citations
-          across {sections.length} cases, grouped here by the monster they explicate.
+          {t(locale, "sourcesLede", { n: totalCitations, m: sections.length })}
         </p>
         <p className="sources__return">
-          <Link href="/">← back to the Cabinet</Link>
+          <Link href={`/${locale}`}>← {t(locale, "backToCabinet")}</Link>
         </p>
       </header>
 
@@ -61,12 +73,12 @@ export default function SourcesPage() {
         {sections.map((s, i) => (
           <li key={s.slug} className="sources__case">
             <header className="sources__case-head">
-              <p className="sources__case-num">Case {String(i + 1).padStart(2, "0")}</p>
+              <p className="sources__case-num">{CASE_LABEL[locale]} {String(i + 1).padStart(2, "0")}</p>
               <h2 className="sources__case-name">
-                <Link href={`/dossier/${s.slug}`}>{s.name}</Link>
+                <Link href={`/${locale}/dossier/${s.slug}`}>{s.name}</Link>
               </h2>
               <p className="sources__case-meta">
-                from <cite>{s.source.title}</cite> · {s.source.author} · {s.source.year} ·{" "}
+                {FROM_PREP[locale]} <cite>{s.source.title}</cite> · {s.source.author} · {s.source.year} ·{" "}
                 <span className="sources__phenomenon">{s.phenomenon}</span>
               </p>
             </header>
@@ -98,12 +110,7 @@ export default function SourcesPage() {
       </ol>
 
       <footer className="sources__footer">
-        <p>
-          References are formatted in APA 7 with minor concessions to the alienist's antiquarian
-          eye. Where a DOI is published, it is linked; readers who wish to consult the originals
-          will find that most academic libraries carry them and that the open-access ones are
-          marked.
-        </p>
+        <p>{APA_NOTE[locale]}</p>
       </footer>
 
       <style>{`

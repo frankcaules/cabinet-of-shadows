@@ -1,11 +1,12 @@
-import { CabinetClient } from "@/components/cabinet/CabinetClient";
+import { redirect } from "next/navigation";
 
-export default function CabinetHome() {
-  return (
-    <CabinetClient
-      title="The Cabinet of Shadows"
-      lede="The reconstructed case files of an unnamed Victorian alienist, who collected the monsters of Gothic literature as if they were patients — and, on the evidence of his notebooks, came to suspect they were."
-      small="A casebook in thirteen parts"
-    />
-  );
+/**
+ * Bare-domain root → redirect to the English locale.
+ *
+ * Future iterations may parse Accept-Language to pick TH for Thai
+ * visitors; for now we send everyone to /en and let them switch
+ * via the language toggle in the corner.
+ */
+export default function RootRedirect() {
+  redirect("/en");
 }

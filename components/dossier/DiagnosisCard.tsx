@@ -1,34 +1,35 @@
-import type { Diagnosis } from "@/lib/data/types";
+import type { Diagnosis, Locale } from "@/lib/data/types";
+import { t } from "@/lib/i18n/messages";
 
-export function DiagnosisCard({ diagnosis }: { diagnosis: Diagnosis }) {
+export function DiagnosisCard({ diagnosis, locale = "en" }: { diagnosis: Diagnosis; locale?: Locale }) {
   return (
     <section aria-labelledby="dossier-diagnosis" className="dossier__section dossier__section--diagnosis">
       <header className="dossier__section-head">
         <p className="dossier__section-num">IV.</p>
-        <h2 id="dossier-diagnosis" className="dossier__section-title">The Diagnosis</h2>
+        <h2 id="dossier-diagnosis" className="dossier__section-title">{t(locale, "sectionDiagnosis")}</h2>
       </header>
 
       <div className="diagnosis-card">
         <div className="diagnosis-card__row">
-          <span className="diagnosis-card__label">Phenomenon</span>
+          <span className="diagnosis-card__label">{t(locale, "diagnosisPhenomenon")}</span>
           <span className="diagnosis-card__value diagnosis-card__value--prominent">{diagnosis.phenomenon}</span>
         </div>
         <div className="diagnosis-card__row">
-          <span className="diagnosis-card__label">Key Researcher</span>
+          <span className="diagnosis-card__label">{t(locale, "diagnosisResearcher")}</span>
           <span className="diagnosis-card__value">{diagnosis.researcher}</span>
         </div>
         <div className="diagnosis-card__row">
-          <span className="diagnosis-card__label">Year of Theory</span>
+          <span className="diagnosis-card__label">{t(locale, "diagnosisYear")}</span>
           <span className="diagnosis-card__value">{diagnosis.yearOfTheory}</span>
         </div>
         {diagnosis.dsmStatus && (
           <div className="diagnosis-card__row">
-            <span className="diagnosis-card__label">DSM / ICD Status</span>
+            <span className="diagnosis-card__label">{t(locale, "diagnosisDSM")}</span>
             <span className="diagnosis-card__value">{diagnosis.dsmStatus}</span>
           </div>
         )}
         <div className="diagnosis-card__row">
-          <span className="diagnosis-card__label">Recommended Reading</span>
+          <span className="diagnosis-card__label">{t(locale, "diagnosisFurtherReading")}</span>
           <ul className="diagnosis-card__reading">
             {diagnosis.furtherReading.map((c) => (
               <li key={c.id}>

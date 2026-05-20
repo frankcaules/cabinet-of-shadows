@@ -1,13 +1,22 @@
 import Link from "next/link";
+import type { Locale } from "@/lib/data/types";
 
-export function ExitLine() {
+const EXIT_LINE: Record<Locale, string> = {
+  en: "Consider, reader, that we built him to be hated, and find ourselves grieving when he falls.",
+  th: "ผู้อ่านโปรดพิจารณาว่าเราได้สร้างเขาขึ้นมาเพื่อให้ถูกเกลียดชัง ทว่ากลับพบว่าตนเองโศกเศร้าเมื่อเขาล้มลง",
+};
+
+const RETURN_LABEL: Record<Locale, string> = {
+  en: "— close the file —",
+  th: "— ปิดสำนวน —",
+};
+
+export function ExitLine({ locale = "en" }: { locale?: Locale }) {
   return (
     <section className="dossier__exit" aria-label="Closing remark">
-      <p className="exit__line">
-        Consider, reader, that we built him to be hated, and find ourselves grieving when he falls.
-      </p>
+      <p className="exit__line">{EXIT_LINE[locale]}</p>
       <p className="exit__return">
-        <Link href="/">— close the file —</Link>
+        <Link href={`/${locale}`}>{RETURN_LABEL[locale]}</Link>
       </p>
 
       <style>{`

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FULL_MONSTERS } from "@/lib/data/monsters";
+import { listMonsters } from "@/lib/data/monsters";
+import type { Locale } from "@/lib/data/types";
 
 /**
  * CabinetKeyboardList
@@ -10,8 +11,8 @@ import { FULL_MONSTERS } from "@/lib/data/monsters";
  * and screen-reader users. Each link becomes briefly visible when
  * focused so sighted keyboard users can see where they are.
  */
-export function CabinetKeyboardList() {
-  const monsters = Object.values(FULL_MONSTERS);
+export function CabinetKeyboardList({ locale = "en" }: { locale?: Locale }) {
+  const monsters = listMonsters(locale).filter((m) => m.status === "full");
   return (
     <nav aria-label="Patient list (keyboard navigation)" className="cabinet-keys">
       <p className="cabinet-keys__heading sr-only">Patients in the Cabinet</p>
@@ -19,7 +20,7 @@ export function CabinetKeyboardList() {
         {monsters.map((m) => (
           <li key={m.slug}>
             <Link
-              href={`/dossier/${m.slug}`}
+              href={`/${locale}/dossier/${m.slug}`}
               className="cabinet-keys__link"
               style={{
                 ["--card-accent" as string]: m.palette.accent,

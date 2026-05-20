@@ -1,18 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { Locale } from "@/lib/data/types";
 
 interface Chapter {
   id: string;
   numeral: string;
-  label: string;
+  label: Record<Locale, string>;
 }
 
 const CHAPTERS: Chapter[] = [
-  { id: "dossier-legend", numeral: "I", label: "Legend" },
-  { id: "dossier-anxiety", numeral: "II", label: "Anxiety" },
-  { id: "dossier-clinical", numeral: "III", label: "Clinical" },
-  { id: "dossier-diagnosis", numeral: "IV", label: "Diagnosis" },
+  { id: "dossier-legend", numeral: "I", label: { en: "Legend", th: "ตำนาน" } },
+  { id: "dossier-anxiety", numeral: "II", label: { en: "Anxiety", th: "ความวิตก" } },
+  { id: "dossier-clinical", numeral: "III", label: { en: "Clinical", th: "คลินิก" } },
+  { id: "dossier-diagnosis", numeral: "IV", label: { en: "Diagnosis", th: "วินิจฉัย" } },
 ];
 
 /**
@@ -22,7 +23,7 @@ const CHAPTERS: Chapter[] = [
  * scrolls so they know which section of the four they are in. On small
  * screens it collapses to numerals only.
  */
-export function ChapterIndex() {
+export function ChapterIndex({ locale = "en" }: { locale?: Locale }) {
   const [active, setActive] = useState<string>(CHAPTERS[0].id);
 
   useEffect(() => {
@@ -52,7 +53,7 @@ export function ChapterIndex() {
           <li key={c.id} data-active={active === c.id}>
             <a href={`#${c.id}`}>
               <span className="chapter-index__num">{c.numeral}</span>
-              <span className="chapter-index__label">{c.label}</span>
+              <span className="chapter-index__label">{c.label[locale]}</span>
             </a>
           </li>
         ))}

@@ -9,6 +9,7 @@ import { LenisProvider } from "@/components/scroll/LenisProvider";
 import { SkipLink } from "@/components/a11y/SkipLink";
 import { AudioToggle } from "@/components/a11y/AudioToggle";
 import { AmbientAudio } from "@/components/a11y/AmbientAudio";
+import { LanguageSwitcher } from "@/components/a11y/LanguageSwitcher";
 import { TransitionLayer } from "@/components/transitions/TransitionLayer";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <MotionProvider>
           <LenisProvider>
             <SkipLink />
+            <LanguageSwitcher />
             <AudioToggle />
             <AmbientAudio />
             <TransitionLayer />

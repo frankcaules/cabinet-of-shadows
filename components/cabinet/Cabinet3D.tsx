@@ -5,6 +5,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { PerspectiveCamera, AdaptiveDpr, AdaptiveEvents, Preload } from "@react-three/drei";
 import * as THREE from "three";
 import { useReducedMotion } from "@/components/a11y/MotionProvider";
+import type { Locale } from "@/lib/data/types";
 import { MonsterObject } from "./MonsterObject";
 import { getCabinetSlots } from "./layout";
 
@@ -47,8 +48,8 @@ function CameraRig({ reduced }: { reduced: boolean }) {
   return null;
 }
 
-function CabinetScene({ reduced }: { reduced: boolean }) {
-  const slots = getCabinetSlots();
+function CabinetScene({ reduced, locale }: { reduced: boolean; locale: Locale }) {
+  const slots = getCabinetSlots(locale);
   return (
     <>
       <PerspectiveCamera makeDefault position={[0, 0.4, 8]} fov={42} near={0.1} far={50} />
@@ -60,13 +61,13 @@ function CabinetScene({ reduced }: { reduced: boolean }) {
       <pointLight position={[0, 3, 6]} intensity={12} color="#E8DCC4" distance={14} decay={1.8} />
 
       {slots.map((slot, i) => (
-        <MonsterObject key={slot.monster.slug} slot={slot} index={i} reduced={reduced} />
+        <MonsterObject key={slot.monster.slug} slot={slot} index={i} reduced={reduced} locale={locale} />
       ))}
     </>
   );
 }
 
-export function Cabinet3D() {
+export function Cabinet3D({ locale = "en" }: { locale?: Locale }) {
   const reduced = useReducedMotion();
 
   return (
@@ -80,7 +81,7 @@ export function Cabinet3D() {
         <AdaptiveDpr pixelated />
         <AdaptiveEvents />
         <Suspense fallback={null}>
-          <CabinetScene reduced={reduced} />
+          <CabinetScene reduced={reduced} locale={locale} />
           <Preload all />
         </Suspense>
       </Canvas>

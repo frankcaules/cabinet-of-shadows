@@ -178,6 +178,37 @@
     0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
+/* ---------- Mobile landscape compaction ----------
+   Phones rotated to landscape have viewport ~812x375 — very wide and
+   short. The vertical rhythm tuned for portrait (5rem section margins,
+   80px hero padding, 92dvh hero) creates wasted space and forces
+   excessive scrolling. These overrides collapse the vertical spacing
+   while preserving readability on narrow phones, without affecting
+   tablets or desktops. */
+@media (orientation: landscape) and (max-height: 480px) {
+  .dossier {
+    padding: 0 1.5rem 3rem;
+  }
+  .dossier__hero {
+    min-height: 100dvh;
+    padding: 1.25rem 1.25rem 1rem;
+    gap: 0.6rem;
+  }
+  .dossier__visage {
+    margin: 2.25rem auto;
+  }
+  .dossier__visage figure,
+  .dossier__visage .visage--placeholder {
+    max-width: 18rem;
+  }
+  .dossier__section {
+    margin: 2.25rem auto;
+  }
+  .dossier__prose p:first-of-type::first-letter {
+    font-size: 3.1em;
+  }
+}
+
 /* ---------- Per-monster scope blocks ---------- */
 
 [data-monster="dracula"] {

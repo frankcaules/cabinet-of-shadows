@@ -95,7 +95,7 @@ export function AmbientAudio() {
     //   /the-alienist     → cabinet hub theme (carried through)
     //   /sources          → cabinet hub theme (carried through)
     let src: string | null = null;
-    const m = pathname.match(/^\/dossier\/([^/]+)/);
+    const m = pathname.match(/^(?:\/(?:en|th))?\/dossier\/([^/]+)/);
     if (m) {
       const slug = m[1];
       const monster = slug ? getMonster(slug) : null;

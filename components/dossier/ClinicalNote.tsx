@@ -1,4 +1,5 @@
-import type { ClinicalNote as ClinicalNoteType, Citation } from "@/lib/data/types";
+import type { ClinicalNote as ClinicalNoteType, Citation, Locale } from "@/lib/data/types";
+import { t } from "@/lib/i18n/messages";
 
 function formatCitation(c: Citation): string {
   const parts: string[] = [
@@ -10,12 +11,12 @@ function formatCitation(c: Citation): string {
   return parts.join(" ");
 }
 
-export function ClinicalNote({ note }: { note: ClinicalNoteType }) {
+export function ClinicalNote({ note, locale = "en" }: { note: ClinicalNoteType; locale?: Locale }) {
   return (
     <section aria-labelledby="dossier-clinical" className="dossier__section dossier__section--clinical">
       <header className="dossier__section-head">
         <p className="dossier__section-num">III.</p>
-        <h2 id="dossier-clinical" className="dossier__section-title">The Clinical Note</h2>
+        <h2 id="dossier-clinical" className="dossier__section-title">{t(locale, "sectionClinical")}</h2>
       </header>
 
       <div className="dossier__prose">
