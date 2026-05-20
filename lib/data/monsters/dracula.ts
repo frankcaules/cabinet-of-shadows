@@ -5,7 +5,7 @@ export const dracula: Monster = {
   status: "full",
   slug: "dracula",
   name: "Count Dracula",
-  epithet: "The Count of Wallachia",
+  epithet: "The Count of Transylvania",
   source: {
     title: "Dracula",
     author: "Bram Stoker",
