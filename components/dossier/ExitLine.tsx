@@ -2,8 +2,12 @@ import Link from "next/link";
 import type { Locale } from "@/lib/data/types";
 
 const EXIT_LINE: Record<Locale, string> = {
-  en: "Consider, reader, that we built him to be hated, and find ourselves grieving when he falls.",
-  th: "ผู้อ่านโปรดพิจารณาว่าเราได้สร้างเขาขึ้นมาเพื่อให้ถูกเกลียดชัง ทว่ากลับพบว่าตนเองโศกเศร้าเมื่อเขาล้มลง",
+  en: "Consider, reader, that we built them to be hated, and find ourselves grieving when they fall.",
+  // Thai third-person pronouns are not gendered; switching from
+  // singular "เขา" to plural "พวกเขา" gives the same parallel of
+  // "we built them ... when they fall" and reads naturally for
+  // every patient in the casebook, including Carmilla.
+  th: "ผู้อ่านโปรดพิจารณาว่าเราได้สร้างพวกเขาขึ้นมาเพื่อให้ถูกเกลียดชัง ทว่ากลับพบว่าตนเองโศกเศร้าเมื่อพวกเขาล้มลง",
 };
 
 const RETURN_LABEL: Record<Locale, string> = {

@@ -6,6 +6,17 @@ import { t } from "@/lib/i18n/messages";
 import { useReducedMotion } from "@/components/a11y/MotionProvider";
 
 /**
+ * Disambiguates the two-digit subject code shown in the hero eyebrow
+ * when two dossiers share a publication year. Dracula and Griffin
+ * are both 1897 — they get 97a and 97b. All other monsters fall
+ * through to the default `String(year).slice(-2)`.
+ */
+const SUBJECT_CODE_OVERRIDE: Record<string, string> = {
+  dracula: "97a",
+  griffin: "97b",
+};
+
+/**
  * Atmospheric video backgrounds per monster (generated via Wan 2.1 T2V).
  * If a video file is missing we silently fall back to the static radial glow.
  */
@@ -77,7 +88,7 @@ export function Summoning({ monster, locale = "en" }: { monster: Monster; locale
       )}
       <div className="dossier__hero-veil" aria-hidden="true" />
 
-      <p className="dossier__hero-eyebrow">{t(locale, "eyebrowSubject", { n: String(monster.source.year).slice(-2) })}</p>
+      <p className="dossier__hero-eyebrow">{t(locale, "eyebrowSubject", { n: SUBJECT_CODE_OVERRIDE[monster.slug] ?? String(monster.source.year).slice(-2) })}</p>
 
       <div
         className="dossier__hero-sigil"
@@ -271,15 +282,10 @@ export function Summoning({ monster, locale = "en" }: { monster: Monster; locale
             font-size: 0.65rem;
           }
         }
-        .sr-only {
-          position: absolute !important;
-          width: 1px; height: 1px;
-          padding: 0; margin: -1px;
-          overflow: hidden;
-          clip: rect(0, 0, 0, 0);
-          white-space: nowrap;
-          border: 0;
-        }
+        /* .sr-only is defined globally in app/globals.css so the
+           visually-hidden screen-reader copy of the source quote
+           never double-renders during initial paint while this
+           component's style chunk is still loading. */
       `}</style>
     </section>
   );

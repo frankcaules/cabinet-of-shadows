@@ -1,10 +1,33 @@
 import type { Monster } from "@/lib/data/types";
 
+/**
+ * Per-monster 4-char display code. Defaults to the first four
+ * letters of the URL slug uppercased, but slugs that start with
+ * "the-" (the-creature, the-wolf) need a meaningful override or
+ * they all render as "THE-". The URL slug itself is unchanged.
+ */
+const SLUG_CODE_OVERRIDE: Record<string, string> = {
+  "the-creature": "CRTR",
+  "the-wolf": "WOLF",
+};
+
+/**
+ * Disambiguates the two-digit year code when two dossiers share a
+ * publication year (Dracula 1897 and Griffin 1897 -> 97a / 97b).
+ * Must stay in sync with the same override in Summoning.tsx.
+ */
+const SUBJECT_CODE_OVERRIDE: Record<string, string> = {
+  dracula: "97a",
+  griffin: "97b",
+};
+
 export function CitationHeader({ monster }: { monster: Monster }) {
+  const yearCode = SUBJECT_CODE_OVERRIDE[monster.slug] ?? String(monster.source.year).slice(-2);
+  const slugCode = SLUG_CODE_OVERRIDE[monster.slug] ?? monster.slug.slice(0, 4).toUpperCase();
   return (
     <section className="dossier__citation" aria-label="Citation header">
       <div className="catalog-card">
-        <div className="catalog-card__corner">№ {String(monster.source.year).slice(-2)} / {monster.slug.slice(0, 4).toUpperCase()}</div>
+        <div className="catalog-card__corner">№ {yearCode} / {slugCode}</div>
         <h1 className="catalog-card__name">{monster.name}</h1>
         <p className="catalog-card__epithet">{monster.epithet}</p>
         <dl className="catalog-card__meta">
