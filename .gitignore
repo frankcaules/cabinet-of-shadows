@@ -52,3 +52,5 @@ scripts/soundfonts/
 __pycache__/
 *.pyc
 
+
+.vercel

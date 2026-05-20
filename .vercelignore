@@ -1,0 +1,25 @@
+# Build / cache
+.next
+node_modules
+out
+dist
+build
+coverage
+*.tsbuildinfo
+
+# Generation pipeline — never needed on Vercel
+scripts/
+.claude/
+.vscode/
+.idea/
+
+# Local env
+.env*
+!.env.example
+
+# Misc
+.DS_Store
+*.log
+
+# Vercel internal
+.vercel
