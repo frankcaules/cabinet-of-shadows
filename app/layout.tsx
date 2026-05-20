@@ -7,8 +7,6 @@ import "@fontsource/eb-garamond/400-italic.css";
 import { MotionProvider } from "@/components/a11y/MotionProvider";
 import { LenisProvider } from "@/components/scroll/LenisProvider";
 import { SkipLink } from "@/components/a11y/SkipLink";
-import { AudioToggle } from "@/components/a11y/AudioToggle";
-import { AmbientAudio } from "@/components/a11y/AmbientAudio";
 import { LanguageSwitcher } from "@/components/a11y/LanguageSwitcher";
 import { TransitionLayer } from "@/components/transitions/TransitionLayer";
 
@@ -26,8 +24,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <LenisProvider>
             <SkipLink />
             <LanguageSwitcher />
-            <AudioToggle />
-            <AmbientAudio />
             <TransitionLayer />
             {children}
           </LenisProvider>

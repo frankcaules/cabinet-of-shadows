@@ -72,12 +72,5 @@ export const hyde: Monster = {
     ],
   },
   transition: "chemical-morph",
-  audio: {
-    ambient: "/audio/hyde-ambient.opus",
-    sfx: {
-      bubbling: "/audio/chemistry-bubble.webm",
-      heartbeat: "/audio/heartbeat-doubled.webm",
-    },
-  },
   sigil: "/sigils/hyde.webp",
 };

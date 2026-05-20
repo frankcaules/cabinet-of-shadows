@@ -70,9 +70,5 @@ export const golem: Monster = {
     ],
   },
   transition: "clay-dust",
-  audio: {
-    ambient: "/audio/ambient/golem-ambient.opus",
-    sfx: {},
-  },
   sigil: "/sigils/golem.webp",
 };

@@ -72,12 +72,5 @@ export const erik: Monster = {
     ],
   },
   transition: "opera-curtain",
-  audio: {
-    ambient: "/audio/erik-ambient.opus",
-    sfx: {
-      organ: "/audio/organ-dies-irae.webm",
-      chandelier: "/audio/chandelier-swing.webm",
-    },
-  },
   sigil: "/sigils/erik.webp",
 };

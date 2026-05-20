@@ -72,12 +72,5 @@ export const theCreature: Monster = {
     ],
   },
   transition: "lightning-suture",
-  audio: {
-    ambient: "/audio/the-creature-ambient.opus",
-    sfx: {
-      hum: "/audio/electric-hum.webm",
-      wind: "/audio/arctic-wind.webm",
-    },
-  },
   sigil: "/sigils/the-creature.webp",
 };

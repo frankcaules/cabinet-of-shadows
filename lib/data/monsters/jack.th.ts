@@ -71,9 +71,5 @@ export const jack: Monster = {
     ],
   },
   transition: "spring-leap",
-  audio: {
-    ambient: "/audio/ambient/jack-ambient.opus",
-    sfx: {},
-  },
   sigil: "/sigils/jack.webp",
 };

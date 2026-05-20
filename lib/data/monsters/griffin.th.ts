@@ -71,9 +71,5 @@ export const griffin: Monster = {
     ],
   },
   transition: "bandage-unwrap",
-  audio: {
-    ambient: "/audio/ambient/griffin-ambient.opus",
-    sfx: {},
-  },
   sigil: "/sigils/griffin.webp",
 };

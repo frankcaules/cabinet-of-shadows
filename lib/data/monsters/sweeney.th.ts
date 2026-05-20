@@ -69,9 +69,5 @@ export const sweeney: Monster = {
     ],
   },
   transition: "razor-slice",
-  audio: {
-    ambient: "/audio/ambient/sweeney-ambient.opus",
-    sfx: {},
-  },
   sigil: "/sigils/sweeney.webp",
 };

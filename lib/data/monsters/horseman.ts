@@ -69,12 +69,5 @@ export const horseman: Monster = {
     ],
   },
   transition: "pumpkin-arc",
-  audio: {
-    ambient: "/audio/horseman-ambient.opus",
-    sfx: {
-      hooves: "/audio/hoofbeats.webm",
-      leaves: "/audio/dry-leaves-wind.webm",
-    },
-  },
   sigil: "/sigils/horseman.webp",
 };

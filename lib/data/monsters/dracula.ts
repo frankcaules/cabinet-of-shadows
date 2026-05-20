@@ -63,12 +63,5 @@ export const dracula: Monster = {
     furtherReading: [CITATIONS.freud1919unheimliche, CITATIONS.clasen2012monsters],
   },
   transition: "bat-swarm",
-  audio: {
-    ambient: "/audio/dracula-ambient.opus",
-    sfx: {
-      howl: "/audio/wolf-howl.webm",
-      heartbeat: "/audio/heartbeat-60bpm.webm",
-    },
-  },
   sigil: "/sigils/dracula.webp",
 };

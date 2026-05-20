@@ -69,12 +69,5 @@ export const sweeney: Monster = {
     ],
   },
   transition: "razor-slice",
-  audio: {
-    ambient: "/audio/sweeney-ambient.opus",
-    sfx: {
-      bells: "/audio/church-bells-distant.webm",
-      razor: "/audio/razor-on-strop.webm",
-    },
-  },
   sigil: "/sigils/sweeney.webp",
 };

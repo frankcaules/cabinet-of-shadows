@@ -20,8 +20,6 @@ export const MESSAGES = {
     homeNavSources: "bibliography",
 
     skipLink: "Skip to dossier content",
-    audioToggleOn: "Pause ambient audio",
-    audioToggleOff: "Play ambient audio",
     languageSwitch: "Switch language",
     languageEn: "English",
     languageTh: "ภาษาไทย",
@@ -77,8 +75,6 @@ export const MESSAGES = {
     homeNavSources: "บรรณานุกรม",
 
     skipLink: "ข้ามไปยังเนื้อหาสำนวน",
-    audioToggleOn: "หยุดเสียงบรรยากาศ",
-    audioToggleOff: "เล่นเสียงบรรยากาศ",
     languageSwitch: "เปลี่ยนภาษา",
     languageEn: "English",
     languageTh: "ภาษาไทย",

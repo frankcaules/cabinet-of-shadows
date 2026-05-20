@@ -46,7 +46,7 @@ export function LanguageSwitcher() {
         .cos-lang {
           position: fixed;
           top: 1rem;
-          right: 4rem;   /* sits to the left of the AudioToggle */
+          right: 1rem;
           z-index: 110;
           display: inline-flex;
           gap: 0.25rem;

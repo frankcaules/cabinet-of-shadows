@@ -97,34 +97,6 @@
   top: 1rem;
 }
 
-/* ---------- Audio toggle ---------- */
-.audio-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 110;
-  width: 2.25rem;
-  height: 2.25rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  color: var(--color-accent, var(--color-cabinet-accent));
-  border: 1px solid var(--color-rule, var(--color-cabinet-rule));
-  border-radius: 9999px;
-  font-family: var(--font-display, var(--font-display-default));
-  font-size: 1rem;
-  cursor: pointer;
-  transition: border-color 150ms ease, color 150ms ease;
-}
-.audio-toggle:hover {
-  border-color: var(--color-accent, var(--color-cabinet-accent));
-}
-.audio-toggle:disabled {
-  opacity: 0.4;
-  cursor: default;
-}
-
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

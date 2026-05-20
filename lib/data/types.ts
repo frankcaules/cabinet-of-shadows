@@ -56,11 +56,6 @@ export interface Diagnosis {
   furtherReading: Citation[];
 }
 
-export interface MonsterAudio {
-  ambient: string;
-  sfx: Record<string, string>;
-}
-
 export interface Monster {
   status: "full";
   slug: string;
@@ -79,7 +74,6 @@ export interface Monster {
   clinicalNote: ClinicalNote;
   diagnosis: Diagnosis;
   transition: TransitionId;
-  audio: MonsterAudio;
   sigil: string;
 }
 
@@ -132,7 +126,6 @@ export interface LocalizedMonster {
   palette: PaletteTokens;
   typography: TypographyTokens;
   transition: TransitionId;
-  audio: MonsterAudio;
   sigil: string;
   content: Partial<Record<Locale, MonsterContent>>;
 }

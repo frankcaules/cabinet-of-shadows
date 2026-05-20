@@ -72,12 +72,5 @@ export const dorian: Monster = {
     ],
   },
   transition: "portrait-age",
-  audio: {
-    ambient: "/audio/dorian-ambient.opus",
-    sfx: {
-      glassware: "/audio/champagne-glasses.webm",
-      piano: "/audio/debussy-slowed.webm",
-    },
-  },
   sigil: "/sigils/dorian.webp",
 };

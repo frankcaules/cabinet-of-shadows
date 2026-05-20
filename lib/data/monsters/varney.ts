@@ -70,12 +70,5 @@ export const varney: Monster = {
     ],
   },
   transition: "newsprint-flutter",
-  audio: {
-    ambient: "/audio/varney-ambient.opus",
-    sfx: {
-      rain: "/audio/rain-windowpane.webm",
-      thunder: "/audio/thunder-distant.webm",
-    },
-  },
   sigil: "/sigils/varney.webp",
 };

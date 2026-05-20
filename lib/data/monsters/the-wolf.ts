@@ -72,12 +72,5 @@ export const theWolf: Monster = {
     ],
   },
   transition: "claw-rake",
-  audio: {
-    ambient: "/audio/the-wolf-ambient.opus",
-    sfx: {
-      howl: "/audio/distant-howl.webm",
-      forest: "/audio/black-forest-night.webm",
-    },
-  },
   sigil: "/sigils/the-wolf.webp",
 };

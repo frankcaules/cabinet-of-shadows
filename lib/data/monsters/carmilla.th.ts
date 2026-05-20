@@ -72,9 +72,5 @@ export const carmilla: Monster = {
     ],
   },
   transition: "silk-curtain",
-  audio: {
-    ambient: "/audio/ambient/carmilla-ambient.opus",
-    sfx: {},
-  },
   sigil: "/sigils/carmilla.webp",
 };
