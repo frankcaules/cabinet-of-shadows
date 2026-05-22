@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useReducedMotion } from "@/components/a11y/MotionProvider";
 import { CabinetFallback } from "./CabinetFallback";
 import { CabinetKeyboardList } from "./CabinetKeyboardList";
+import { CabinetSkeleton } from "./CabinetSkeleton";
 import { Colophon } from "@/components/site/Colophon";
 import type { Locale } from "@/lib/data/types";
 import { t } from "@/lib/i18n/messages";
@@ -27,9 +28,11 @@ import "@fontsource/frank-ruhl-libre/400.css";          // Golem
 import "@fontsource/old-standard-tt/400-italic.css";    // Horseman
 
 // Code-split the R3F tree — Three.js is heavy and unneeded on first paint.
+// While the chunk loads, show the cabinet skeleton so the centre of the
+// stage isn't empty for hundreds of milliseconds on slower connections.
 const Cabinet3D = dynamic(
   () => import("./Cabinet3D").then((m) => ({ default: m.Cabinet3D })),
-  { ssr: false, loading: () => null },
+  { ssr: false, loading: () => <CabinetSkeleton /> },
 );
 
 interface CabinetClientProps {
@@ -72,6 +75,10 @@ export function CabinetClient({ title, lede, small, locale = "en" }: CabinetClie
       <div className="cabinet-stage__backdrop" aria-hidden="true" />
       <div className="cabinet-stage__veil" aria-hidden="true" />
 
+      {/* Before WebGL detection completes (a single frame on hydration,
+          longer on slow devices), show the skeleton so the centre isn't
+          empty. Then swap to the real 3D scene OR the static fallback. */}
+      {!decided && <CabinetSkeleton />}
       {decided && (use3D ? <Cabinet3D locale={locale} /> : <CabinetFallback locale={locale} />)}
 
       {/* Parallel keyboard-accessible patient list — visually hidden
