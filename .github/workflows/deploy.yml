@@ -22,9 +22,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup pnpm
+        # No `version:` — let action-setup read packageManager from package.json
+        # so the CI uses the same pnpm version the developer pins locally.
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Setup Node
         uses: actions/setup-node@v4
