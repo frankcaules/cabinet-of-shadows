@@ -2,7 +2,7 @@
   "name": "cabinet-of-shadows",
   "version": "1.0.0",
   "private": true,
-  "description": "A Victorian alienist's casebook of the monsters of Gothic literature, paired with real peer-reviewed psychology research. Bilingual (EN + TH), zero analytics, zero tracking.",
+  "description": "A Victorian alienist's casebook of the monsters of Gothic literature, paired with peer-reviewed psychology research, fully cited. Bilingual (EN + TH), zero analytics, zero tracking.",
   "homepage": "https://cabinetofshadows.me",
   "repository": {
     "type": "git",

@@ -58,7 +58,7 @@ export const MESSAGES = {
 
     sourcesTitle: "The Bibliography",
     sourcesLede:
-      "Every clinical claim in this casebook is anchored to a real peer-reviewed source. The alienist's prose is original; the science he draws on is not. {n} citations across {m} cases, grouped here by the monster they explicate.",
+      "Every clinical claim in this casebook is anchored to a source you can read for yourself. The alienist's prose is original; the science he draws on is not — every paper is listed here, with a live DOI where one exists, so you may fact-check at your leisure. {n} citations across {m} cases, grouped by the monster they explicate.",
 
     alienistTitle: "About the Alienist",
 
@@ -123,7 +123,7 @@ export const MESSAGES = {
 
     sourcesTitle: "บรรณานุกรม",
     sourcesLede:
-      "ทุกข้ออ้างทางคลินิกในแฟ้มคดีนี้ผูกโยงกับแหล่งอ้างอิงที่ผ่านการพิจารณาโดยผู้ทรงคุณวุฒิจริง บทประพันธ์ของอลีนิสต์เป็นต้นฉบับ ทว่าหลักวิทยาศาสตร์ที่เขาอ้างอิงนั้นมิใช่ การอ้างอิง {n} รายการในสำนวน {m} เรื่อง จัดกลุ่มตามปีศาจที่ใช้อธิบาย",
+      "ทุกข้ออ้างทางคลินิกในแฟ้มคดีนี้ผูกโยงกับแหล่งอ้างอิงที่ท่านสามารถอ่านได้ด้วยตนเอง บทประพันธ์ของอลีนิสต์เป็นต้นฉบับ ทว่าหลักวิทยาศาสตร์ที่เขาอ้างอิงนั้นมิใช่ — บทความทุกชิ้นมีรายการอยู่ที่นี่ พร้อมหมายเลข DOI ที่ใช้งานได้เมื่อมี เพื่อให้ท่านตรวจสอบได้ตามอัธยาศัย การอ้างอิง {n} รายการในสำนวน {m} เรื่อง จัดกลุ่มตามปีศาจที่ใช้อธิบาย",
 
     alienistTitle: "ว่าด้วยอลีนิสต์",
 

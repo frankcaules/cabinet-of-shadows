@@ -26,13 +26,13 @@ unnamed Victorian alienist — that is, a nineteenth-century doctor of the
 mind, predating the word *psychiatrist* by several decades — who treated
 the monsters of Gothic literature as if they were his patients.
 
-Thirteen patients. Thirteen dossiers. Thirteen real, peer-reviewed
+Thirteen patients. Thirteen dossiers. Thirteen peer-reviewed
 psychological phenomena — disorganised attachment, clinical lycanthropy,
 mass sociogenic illness, the *Unheimliche*, deindividuation, depersonalisation,
 narcissistic personality structure, and the rest — held up against the
-novels that anticipated them by a century. Every citation in the alienist's
-margin notes is a real paper. The DOIs are live. The bibliography is real.
-The alienist is a fiction; what he is reading is not.
+novels that anticipated them by a century. Every clinical claim is cited;
+the DOIs are live; the bibliography is open. The alienist is a fiction,
+but everything he reads can be fact-checked by anyone who wishes to.
 
 Dracula sits across his desk under one reading. Frankenstein's Creature
 sits across the same desk under another. The framing is the joke. The
@@ -42,7 +42,7 @@ science is the point.
 |---|---|
 | **Frame** | A nineteenth-century alienist's hand-bound casebook |
 | **Cast** | Dracula · the Creature · Mr Hyde · the Werewolf · the Invisible Man · Carmilla · the Phantom · Dorian Gray · Varney · Sweeney Todd · Spring-Heeled Jack · the Golem · the Headless Horseman |
-| **Anchor** | ~80 peer-reviewed citations, real DOIs, grouped by case |
+| **Anchor** | ~80 peer-reviewed citations, live DOIs, grouped by case |
 | **Voice** | English and Thai, both written from scratch |
 | **Surface** | Next.js 15 + React 19 + TypeScript strict, Tailwind v4, Three.js hub, GSAP scroll choreography |
 
@@ -66,7 +66,7 @@ cabinetofshadows.me/en/privacy               the no-tracking pledge
 | Yes | No |
 |---|---|
 | ✅ Original prose, English and Thai, hand-written | ❌ No analytics. None. Not Google, not Plausible, not Vercel's, not anything. |
-| ✅ ~80 real peer-reviewed citations with live DOIs | ❌ No cookies. None. No banner because none to consent to. |
+| ✅ ~80 peer-reviewed citations with live DOIs, fact-checkable | ❌ No cookies. None. No banner because none to consent to. |
 | ✅ Self-hosted fonts via `@fontsource` | ❌ No third-party JS. No Google Fonts. No CDN-jQuery. No anything. |
 | ✅ Self-hosted illustrations and audio | ❌ No accounts, no forms, no newsletter, no "share your email" |
 | ✅ Three.js hub with full keyboard fallback | ❌ No paywall. No subscription. No ads. No affiliate links. |
@@ -282,6 +282,6 @@ The clinical literature is the work of its authors — see the
 [bibliography](https://cabinetofshadows.me/en/sources) for the proper
 attributions.
 
-The cases are real. The alienist is not. The bibliography is.
+The alienist is a fiction. The bibliography is not. Fact-check at will.
 
 > *— the Editors, 2026*

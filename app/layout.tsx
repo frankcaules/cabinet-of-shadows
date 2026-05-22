@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "The Cabinet of Shadows",
     title: "The Cabinet of Shadows",
     description:
-      "A casebook in thirteen parts: the monsters of Gothic literature read through real, peer-reviewed psychology.",
+      "A casebook in thirteen parts: the monsters of Gothic literature read through peer-reviewed psychology, fully cited.",
     url: SITE_URL,
     locale: "en_US",
     alternateLocale: ["th_TH"],

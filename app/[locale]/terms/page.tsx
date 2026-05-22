@@ -49,7 +49,7 @@ const COPY: Record<Locale, TermsCopy> = {
       {
         heading: "What we promise about accuracy",
         paragraphs: [
-          "Every clinical claim made by the alienist is anchored to a real, peer-reviewed source whose details appear in the bibliography. The DOIs are live. The papers exist. The arguments attributed to those papers are arguments the papers themselves make. We have checked.",
+          "Every clinical claim made by the alienist is anchored to a source whose details appear in the bibliography. The DOIs are live. The arguments attributed to those papers are arguments the papers themselves make. We have checked; you are welcome to as well.",
           "We do not promise that the alienist's synthesis is the only defensible reading of any given novel, or of any given piece of clinical literature. Where the literature is contested, we have indicated as much; where the alienist editorialises, he is honest about doing so; where he declines to editorialise, he is leaving room for you. This is science communication, not a textbook. Use it as a starting point for the underlying papers, which are the canonical record.",
           "The Cabinet does not provide medical advice. Nothing here is a substitute for consulting a qualified clinician about your own mental health or anyone else's. If a dossier on, say, dissociative identity disorder leads you to wonder about your own experience, please talk to a real psychiatrist or psychologist — not to a website written in a velvet coat.",
         ],
@@ -111,7 +111,7 @@ const COPY: Record<Locale, TermsCopy> = {
       {
         heading: "สิ่งที่เรารับรองเรื่องความถูกต้อง",
         paragraphs: [
-          "ทุกข้ออ้างทางคลินิกของอลีนิสต์ผูกโยงกับแหล่งอ้างอิงที่ผ่านการพิจารณาโดยผู้ทรงคุณวุฒิจริง ซึ่งรายละเอียดปรากฏในบรรณานุกรม หมายเลข DOI ใช้งานได้ บทความเหล่านั้นมีอยู่จริง ข้อโต้แย้งที่อ้างถึงคือข้อโต้แย้งที่บทความเหล่านั้นเสนอเอง เราได้ตรวจสอบแล้ว",
+          "ทุกข้ออ้างทางคลินิกของอลีนิสต์ผูกโยงกับแหล่งอ้างอิงซึ่งรายละเอียดปรากฏในบรรณานุกรม หมายเลข DOI ใช้งานได้ ข้อโต้แย้งที่อ้างถึงคือข้อโต้แย้งที่บทความเหล่านั้นเสนอเอง เราได้ตรวจสอบแล้ว และท่านก็ตรวจสอบได้เช่นกัน",
           "เรามิได้รับรองว่าการสังเคราะห์ของอลีนิสต์เป็นการอ่านเดียวที่ป้องกันได้สำหรับนวนิยายหรือวรรณกรรมคลินิกใด ๆ ที่ใดวรรณกรรมมีความขัดแย้ง เราได้ระบุไว้ ที่ใดอลีนิสต์แสดงความเห็นส่วนตัว เขาก็ตรงไปตรงมาว่ากำลังทำเช่นนั้น ที่ใดเขาปฏิเสธจะแสดงความเห็น เขากำลังเปิดพื้นที่ให้ท่าน นี่คือการสื่อสารวิทยาศาสตร์ มิใช่ตำรา จงใช้เป็นจุดเริ่มต้นไปสู่บทความต้นทาง ซึ่งเป็นบันทึกที่เป็นมาตรฐาน",
           "ตู้แห่งเงามิได้ให้คำแนะนำทางการแพทย์ ไม่มีสิ่งใดที่นี่ใช้แทนการปรึกษาแพทย์ที่มีคุณสมบัติเกี่ยวกับสุขภาพจิตของท่านหรือผู้อื่นได้ หากสำนวนเรื่อง เช่น โรคหลายบุคลิก ทำให้ท่านสงสัยเกี่ยวกับประสบการณ์ของตน กรุณาพูดคุยกับจิตแพทย์หรือนักจิตวิทยาตัวจริง มิใช่กับเว็บไซต์ที่สวมเสื้อกำมะหยี่",
         ],
