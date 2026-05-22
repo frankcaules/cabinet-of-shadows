@@ -8,6 +8,7 @@ import { MotionProvider } from "@/components/a11y/MotionProvider";
 import { LenisProvider } from "@/components/scroll/LenisProvider";
 import { SkipLink } from "@/components/a11y/SkipLink";
 import { LanguageSwitcher } from "@/components/a11y/LanguageSwitcher";
+import { RepoLink } from "@/components/a11y/RepoLink";
 import { TransitionLayer } from "@/components/transitions/TransitionLayer";
 
 const SITE_URL = "https://cabinetofshadows.me";
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <MotionProvider>
           <LenisProvider>
             <SkipLink />
+            <RepoLink />
             <LanguageSwitcher />
             <TransitionLayer />
             {children}
