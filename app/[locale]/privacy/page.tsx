@@ -88,7 +88,7 @@ const COPY: Record<Locale, PrivacyCopy> = {
       {
         heading: "Changes to this notice",
         paragraphs: [
-          "If we ever change any of the above — for instance, if we one day decide to add a comments section or accept newsletter signups — we will say so on this page, and the change will be documented in the public commit history of the site's source code. The whole project is in the open at github.com/ncsergiis/cabinet-of-shadows. Run a diff against any past version of this file to see exactly what has changed and when.",
+          "If we ever change any of the above — for instance, if we one day decide to add a comments section or accept newsletter signups — we will say so on this page, and the change will be documented in the public commit history of the site's source code. The whole project is in the open at github.com/frankcaules/cabinet-of-shadows. Run a diff against any past version of this file to see exactly what has changed and when.",
         ],
       },
       {
@@ -163,7 +163,7 @@ const COPY: Record<Locale, PrivacyCopy> = {
       {
         heading: "การเปลี่ยนแปลงประกาศนี้",
         paragraphs: [
-          "หากเรามีการเปลี่ยนแปลงข้อใดข้างต้น เช่น หากในวันหนึ่งเราตัดสินใจเพิ่มช่องแสดงความคิดเห็นหรือรับสมัครจดหมายข่าว เราจะระบุไว้ที่หน้านี้ และการเปลี่ยนแปลงจะถูกบันทึกในประวัติคอมมิทสาธารณะของรหัสต้นทางของเว็บไซต์ ทั้งโครงการเปิดเผยอยู่ที่ github.com/ncsergiis/cabinet-of-shadows ทำการ diff กับเวอร์ชันก่อนหน้าใดของไฟล์นี้เพื่อดูว่ามีอะไรเปลี่ยน เมื่อใด",
+          "หากเรามีการเปลี่ยนแปลงข้อใดข้างต้น เช่น หากในวันหนึ่งเราตัดสินใจเพิ่มช่องแสดงความคิดเห็นหรือรับสมัครจดหมายข่าว เราจะระบุไว้ที่หน้านี้ และการเปลี่ยนแปลงจะถูกบันทึกในประวัติคอมมิทสาธารณะของรหัสต้นทางของเว็บไซต์ ทั้งโครงการเปิดเผยอยู่ที่ github.com/frankcaules/cabinet-of-shadows ทำการ diff กับเวอร์ชันก่อนหน้าใดของไฟล์นี้เพื่อดูว่ามีอะไรเปลี่ยน เมื่อใด",
         ],
       },
       {

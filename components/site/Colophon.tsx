@@ -43,7 +43,7 @@ export function Colophon({ locale, variant = "full" }: ColophonProps) {
       </li>
       <li>
         <a
-          href="https://github.com/ncsergiis/cabinet-of-shadows/blob/main/SECURITY.md"
+          href="https://github.com/frankcaules/cabinet-of-shadows/blob/main/SECURITY.md"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -52,7 +52,7 @@ export function Colophon({ locale, variant = "full" }: ColophonProps) {
       </li>
       <li>
         <a
-          href="https://github.com/ncsergiis/cabinet-of-shadows"
+          href="https://github.com/frankcaules/cabinet-of-shadows"
           rel="noopener noreferrer"
           target="_blank"
         >

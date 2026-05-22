@@ -75,7 +75,7 @@ const COPY: Record<Locale, TermsCopy> = {
       {
         heading: "Changes",
         paragraphs: [
-          "If we change these terms in any substantive way, we will update the date at the top of this page and the change will appear in the public commit history of the site's source code. The repository is at github.com/ncsergiis/cabinet-of-shadows; the history is the receipt.",
+          "If we change these terms in any substantive way, we will update the date at the top of this page and the change will appear in the public commit history of the site's source code. The repository is at github.com/frankcaules/cabinet-of-shadows; the history is the receipt.",
         ],
       },
       {
@@ -137,7 +137,7 @@ const COPY: Record<Locale, TermsCopy> = {
       {
         heading: "การเปลี่ยนแปลง",
         paragraphs: [
-          "หากเราเปลี่ยนแปลงข้อกำหนดเหล่านี้ในสาระสำคัญใด เราจะปรับวันที่ด้านบนของหน้านี้ และการเปลี่ยนแปลงจะปรากฏในประวัติคอมมิทสาธารณะของรหัสต้นทาง คลังอยู่ที่ github.com/ncsergiis/cabinet-of-shadows ประวัติคือใบเสร็จ",
+          "หากเราเปลี่ยนแปลงข้อกำหนดเหล่านี้ในสาระสำคัญใด เราจะปรับวันที่ด้านบนของหน้านี้ และการเปลี่ยนแปลงจะปรากฏในประวัติคอมมิทสาธารณะของรหัสต้นทาง คลังอยู่ที่ github.com/frankcaules/cabinet-of-shadows ประวัติคือใบเสร็จ",
         ],
       },
       {

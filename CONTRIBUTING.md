@@ -95,7 +95,7 @@ have without this?*
 Requires Node 22 LTS and pnpm 10.
 
 ```powershell
-git clone https://github.com/ncsergiis/cabinet-of-shadows.git
+git clone https://github.com/frankcaules/cabinet-of-shadows.git
 cd cabinet-of-shadows
 pnpm install
 pnpm dev          # → http://localhost:3000

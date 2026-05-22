@@ -7,7 +7,7 @@
 [**cabinetofshadows.me**](https://cabinetofshadows.me)
 
 [![Live](https://img.shields.io/badge/site-cabinetofshadows.me-D4A574?style=flat-square)](https://cabinetofshadows.me)
-[![Deploy](https://img.shields.io/github/actions/workflow/status/ncsergiis/cabinet-of-shadows/deploy.yml?branch=main&style=flat-square&label=deploy)](https://github.com/ncsergiis/cabinet-of-shadows/actions/workflows/deploy.yml)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/frankcaules/cabinet-of-shadows/deploy.yml?branch=main&style=flat-square&label=deploy)](https://github.com/frankcaules/cabinet-of-shadows/actions/workflows/deploy.yml)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue?style=flat-square)](./LICENSE)
 [![Prose: CC BY-NC-SA 4.0](https://img.shields.io/badge/prose-CC%20BY--NC--SA%204.0-green?style=flat-square)](./LICENSE)
 [![No tracking](https://img.shields.io/badge/tracking-none-success?style=flat-square)](./app/[locale]/privacy/page.tsx)
@@ -159,7 +159,7 @@ cabinet-of-shadows/
 Requires Node 22 LTS and pnpm 10.
 
 ```powershell
-git clone https://github.com/ncsergiis/cabinet-of-shadows.git
+git clone https://github.com/frankcaules/cabinet-of-shadows.git
 cd cabinet-of-shadows
 pnpm install
 pnpm dev          # → http://localhost:3000

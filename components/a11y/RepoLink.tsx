@@ -17,7 +17,7 @@ export function RepoLink() {
   return (
     <a
       className="cos-repo"
-      href="https://github.com/ncsergiis/cabinet-of-shadows"
+      href="https://github.com/frankcaules/cabinet-of-shadows"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="View source on GitHub"

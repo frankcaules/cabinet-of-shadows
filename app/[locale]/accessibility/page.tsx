@@ -84,7 +84,7 @@ const COPY: Record<Locale, AccessCopy> = {
         heading: "Reporting a problem",
         paragraphs: [
           "If anything on this site is hard to use with the assistive technology you rely on, or hard to read for any other reason, please write to frank.caules@gmail.com with subject [accessibility]. Describe what you were trying to do, what got in the way, and what device or assistive technology you were using. We treat accessibility bugs at the same priority as security bugs: we will acknowledge within 72 hours and fix as soon as we can.",
-          "If a fix is simple, we will deploy it directly. If a fix touches the underlying architecture, we will document the change in the public commit history of the site's source code, which is open at github.com/ncsergiis/cabinet-of-shadows.",
+          "If a fix is simple, we will deploy it directly. If a fix touches the underlying architecture, we will document the change in the public commit history of the site's source code, which is open at github.com/frankcaules/cabinet-of-shadows.",
         ],
       },
     ],
@@ -149,7 +149,7 @@ const COPY: Record<Locale, AccessCopy> = {
         heading: "การรายงานปัญหา",
         paragraphs: [
           "หากสิ่งใดในเว็บไซต์นี้ใช้งานยากกับเทคโนโลยีช่วยที่ท่านใช้ หรืออ่านยากด้วยเหตุผลอื่นใด กรุณาเขียนถึง frank.caules@gmail.com หัวข้อ [accessibility] อธิบายสิ่งที่ท่านพยายามทำ สิ่งที่ขวางทาง และอุปกรณ์หรือเทคโนโลยีช่วยที่ท่านใช้ เราจัดลำดับความสำคัญข้อบกพร่องด้านการเข้าถึงเท่ากับข้อบกพร่องด้านความปลอดภัย เราจะตอบรับภายใน 72 ชั่วโมงและแก้ไขโดยเร็วที่สุด",
-          "หากการแก้ไขเรียบง่าย เราจะปรับใช้ทันที หากกระทบสถาปัตยกรรมพื้นฐาน เราจะบันทึกการเปลี่ยนแปลงในประวัติคอมมิทสาธารณะของรหัสต้นทาง ซึ่งเปิดอยู่ที่ github.com/ncsergiis/cabinet-of-shadows",
+          "หากการแก้ไขเรียบง่าย เราจะปรับใช้ทันที หากกระทบสถาปัตยกรรมพื้นฐาน เราจะบันทึกการเปลี่ยนแปลงในประวัติคอมมิทสาธารณะของรหัสต้นทาง ซึ่งเปิดอยู่ที่ github.com/frankcaules/cabinet-of-shadows",
         ],
       },
     ],

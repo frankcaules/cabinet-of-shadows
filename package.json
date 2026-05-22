@@ -6,10 +6,10 @@
   "homepage": "https://cabinetofshadows.me",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncsergiis/cabinet-of-shadows.git"
+    "url": "git+https://github.com/frankcaules/cabinet-of-shadows.git"
   },
   "bugs": {
-    "url": "https://github.com/ncsergiis/cabinet-of-shadows/issues",
+    "url": "https://github.com/frankcaules/cabinet-of-shadows/issues",
     "email": "frank.caules@gmail.com"
   },
   "author": {
