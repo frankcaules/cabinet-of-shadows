@@ -1,0 +1,131 @@
+The Cabinet of Shadows — Dual License
+======================================
+
+The software (the code that builds and runs the site) and the content
+(the editorial prose, the alienist's voice, translations, and curated
+bibliography) are licensed separately.
+
+This was a deliberate choice. We wanted the engineering work to be as
+freely reusable as possible, while keeping the editorial voice from
+being lifted wholesale into other projects without attribution and
+without preserving its non-commercial spirit.
+
+
+-----------------------------------------------------------------------
+1. SOFTWARE LICENSE — MIT
+-----------------------------------------------------------------------
+
+The code in this repository — all files matching:
+
+    *.ts  *.tsx  *.js  *.mjs  *.css  *.json  *.svg
+    next.config.ts  postcss.config.mjs  package.json  pnpm-lock.yaml
+    and every other source, configuration, and tooling file required
+    to build, run, or develop the site
+
+is released under the MIT License:
+
+  Copyright (c) 2026 Frank Caules
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject
+  to the following conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+  BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+  ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+
+-----------------------------------------------------------------------
+2. CONTENT LICENSE — CC BY-NC-SA 4.0
+-----------------------------------------------------------------------
+
+The editorial content in this repository — specifically:
+
+  • the alienist's prose in every monster dossier
+    (legend, anxiety, clinical note, diagnosis)
+  • the introductory and framing essays
+    (the home page lede, /the-alienist, /sources lede)
+  • the Thai translations of the above
+  • the curated bibliography selection and arrangement
+    (the underlying papers are themselves the work of their authors)
+  • the editorial voice, terminology, and structural conceit
+
+is released under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License.
+
+Full text:  https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+Summary:    https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+In plain English:
+  • You may share and adapt the editorial content.
+  • You must give appropriate credit and link to this license.
+  • You may not use the content for commercial purposes.
+  • If you remix or build upon it, you must release your version
+    under the same license.
+
+  Copyright (c) 2026 Frank Caules
+
+
+-----------------------------------------------------------------------
+3. THIRD-PARTY CONTENT — NOT COVERED BY THIS LICENSE
+-----------------------------------------------------------------------
+
+Some material shipped alongside this site is the work of others and is
+governed by its own terms:
+
+  • Cited academic papers (Freud, Bowlby, Clasen, Blom, Jonason,
+    Spiegel, Loewenstein, and the rest of the bibliography) remain
+    the copyright of their respective authors and publishers. We
+    cite them under the academic doctrine of fair use; we do not
+    redistribute their full text.
+
+  • Public-domain illustrations sourced from Wikimedia Commons,
+    Vesalius's De humani corporis fabrica (1543), Boughton's 1893
+    illustrations to "The Legend of Sleepy Hollow", and similar
+    19th-century engravings are in the public domain. We do not
+    claim copyright in those source images, only in any colour
+    grading, composition, or framing work derived from them.
+
+  • Web fonts (@fontsource/*) ship under the SIL Open Font License
+    (OFL 1.1) or the open-source license specified by each package.
+    See the respective node_modules/@fontsource/<font>/LICENSE files.
+
+  • npm dependencies are governed by their own licenses; see
+    pnpm-lock.yaml and each package's own LICENSE file.
+
+
+-----------------------------------------------------------------------
+4. NO AI TRAINING USE
+-----------------------------------------------------------------------
+
+We do not consent to the use of any part of this work — code or
+content — in the training, fine-tuning, or evaluation of machine
+learning models without explicit prior written agreement. This
+exclusion is asserted under:
+
+  • robots.txt (Disallow for all major AI crawlers)
+  • the X-Robots-Tag HTTP header
+  • the EU Directive 2019/790, Article 4 (TDM opt-out)
+  • the spirit of the CC BY-NC-SA license, under which commercial
+    use — including the productisation of a model trained on this
+    material — requires separate negotiation.
+
+
+-----------------------------------------------------------------------
+Contact
+-----------------------------------------------------------------------
+
+For licensing questions, commercial enquiries, or to request an
+exception to any of the above: frank.caules@gmail.com.

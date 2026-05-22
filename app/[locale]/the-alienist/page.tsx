@@ -3,6 +3,7 @@ import Link from "next/link";
 import { listMonsters } from "@/lib/data/monsters";
 import { LOCALES, type Locale } from "@/lib/data/types";
 import { t } from "@/lib/i18n/messages";
+import { Colophon } from "@/components/site/Colophon";
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -95,19 +96,42 @@ const COPY: Record<Locale, AlienistCopy> = {
   },
 };
 
+/**
+ * Render a paragraph of trusted editorial copy with two interpolations:
+ *   • `[bibliography]`  → a Next <Link> to /<locale>/sources
+ *   • `<em>...</em>`    → an italic <em> element
+ *
+ * Uses an allowlist parser instead of dangerouslySetInnerHTML so the
+ * rendered tree is always safe, even if future copy is sourced from a
+ * less-trusted place (translators, CMS, etc.).
+ */
 function renderParaWithLinks(p: string, locale: Locale) {
-  // Replace the [bibliography] placeholder with a real link
-  const parts = p.split(/(\[bibliography\])/g);
-  return parts.map((part, i) => {
-    if (part === "[bibliography]") {
-      return (
-        <Link key={i} href={`/${locale}/sources`}>
+  // First split on the [bibliography] token. Then within each plain segment,
+  // split on the limited <em>...</em> tag we allow. Anything that doesn't
+  // match either is rendered as a literal text node — never as HTML.
+  const tokenParts = p.split(/(\[bibliography\])/g);
+  const out: React.ReactNode[] = [];
+  let key = 0;
+  for (const tp of tokenParts) {
+    if (tp === "[bibliography]") {
+      out.push(
+        <Link key={key++} href={`/${locale}/sources`}>
           {t(locale, "homeNavSources")}
-        </Link>
+        </Link>,
       );
+      continue;
     }
-    return <span key={i} dangerouslySetInnerHTML={{ __html: part }} />;
-  });
+    const emParts = tp.split(/(<em>[^<]*<\/em>)/g);
+    for (const ep of emParts) {
+      const m = /^<em>([^<]*)<\/em>$/.exec(ep);
+      if (m) {
+        out.push(<em key={key++}>{m[1]}</em>);
+      } else if (ep) {
+        out.push(<span key={key++}>{ep}</span>);
+      }
+    }
+  }
+  return out;
 }
 
 interface PageProps {
@@ -182,6 +206,8 @@ export default async function AlienistPage({ params }: PageProps) {
           <Link href={`/${locale}`}>{copy.footerLink}</Link>
         </p>
       </footer>
+
+      <Colophon locale={locale} />
 
       <style>{`
         .alienist {

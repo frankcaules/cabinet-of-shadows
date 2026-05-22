@@ -7,6 +7,7 @@ import { Anxiety } from "./Anxiety";
 import { ClinicalNote } from "./ClinicalNote";
 import { DiagnosisCard } from "./DiagnosisCard";
 import { ExitLine } from "./ExitLine";
+import { Colophon } from "@/components/site/Colophon";
 import { SceneBreak } from "./SceneBreak";
 import { ChapterIndex } from "./ChapterIndex";
 import { IntroCard } from "./IntroCard";
@@ -128,6 +129,8 @@ export function DossierShell({ monster, locale = "en" }: { monster: Monster; loc
         <DiagnosisCard diagnosis={monster.diagnosis} locale={locale} />
         <ExitLine locale={locale} />
       </article>
+
+      <Colophon locale={locale} />
 
       <style>{`
         .dossier {

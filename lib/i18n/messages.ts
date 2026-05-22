@@ -61,6 +61,16 @@ export const MESSAGES = {
       "Every clinical claim in this casebook is anchored to a real peer-reviewed source. The alienist's prose is original; the science he draws on is not. {n} citations across {m} cases, grouped here by the monster they explicate.",
 
     alienistTitle: "About the Alienist",
+
+    colophonPrivacy: "privacy",
+    colophonTerms: "terms",
+    colophonAccessibility: "accessibility",
+    colophonSecurity: "security",
+    colophonRepo: "source on GitHub",
+    colophonEmail: "write to the editors",
+    colophonNoTracking: "no analytics · no cookies · no tracking",
+    colophonLicense: "code: MIT · prose: CC BY-NC-SA 4.0",
+    colophonCopyright: "© {y} Frank Caules · The Cabinet of Shadows",
   },
 
   th: {
@@ -116,6 +126,16 @@ export const MESSAGES = {
       "ทุกข้ออ้างทางคลินิกในแฟ้มคดีนี้ผูกโยงกับแหล่งอ้างอิงที่ผ่านการพิจารณาโดยผู้ทรงคุณวุฒิจริง บทประพันธ์ของอลีนิสต์เป็นต้นฉบับ ทว่าหลักวิทยาศาสตร์ที่เขาอ้างอิงนั้นมิใช่ การอ้างอิง {n} รายการในสำนวน {m} เรื่อง จัดกลุ่มตามปีศาจที่ใช้อธิบาย",
 
     alienistTitle: "ว่าด้วยอลีนิสต์",
+
+    colophonPrivacy: "ความเป็นส่วนตัว",
+    colophonTerms: "ข้อกำหนด",
+    colophonAccessibility: "การเข้าถึง",
+    colophonSecurity: "ความปลอดภัย",
+    colophonRepo: "รหัสต้นทางบน GitHub",
+    colophonEmail: "ติดต่อกองบรรณาธิการ",
+    colophonNoTracking: "ไม่มีการเก็บสถิติ · ไม่มีคุกกี้ · ไม่มีการติดตาม",
+    colophonLicense: "รหัส: MIT · บทประพันธ์: CC BY-NC-SA 4.0",
+    colophonCopyright: "© {y} Frank Caules · ตู้แห่งเงา",
   },
 } as const satisfies Record<Locale, Record<string, string>>;
 

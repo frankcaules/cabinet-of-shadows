@@ -3,6 +3,7 @@ import Link from "next/link";
 import { listMonsters } from "@/lib/data/monsters";
 import { LOCALES, type Citation, type Locale, type Monster } from "@/lib/data/types";
 import { t } from "@/lib/i18n/messages";
+import { Colophon } from "@/components/site/Colophon";
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -112,6 +113,8 @@ export default async function SourcesPage({ params }: PageProps) {
       <footer className="sources__footer">
         <p>{APA_NOTE[locale]}</p>
       </footer>
+
+      <Colophon locale={locale} />
 
       <style>{`
         .sources {

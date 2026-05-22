@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useReducedMotion } from "@/components/a11y/MotionProvider";
 import { CabinetFallback } from "./CabinetFallback";
 import { CabinetKeyboardList } from "./CabinetKeyboardList";
+import { Colophon } from "@/components/site/Colophon";
 import type { Locale } from "@/lib/data/types";
 import { t } from "@/lib/i18n/messages";
 
@@ -93,6 +94,7 @@ export function CabinetClient({ title, lede, small, locale = "en" }: CabinetClie
             <span aria-hidden="true"> · </span>
             <Link href={`/${locale}/sources`}>{t(locale, "homeNavSources")}</Link>
           </nav>
+          <Colophon locale={locale} variant="compact" />
           {use3D && (
             <p className="cabinet-stage__hint" aria-live="polite">
               {t(locale, "homeHint")}

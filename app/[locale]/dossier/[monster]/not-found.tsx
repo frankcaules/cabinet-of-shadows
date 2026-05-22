@@ -11,7 +11,7 @@ export default function DossierNotFound() {
           This monster has not yet been catalogued.
         </h1>
         <p style={{ marginTop: "1.25rem", opacity: 0.8 }}>
-          The alienist's drawer for this name is empty. Perhaps the file was destroyed; perhaps the patient never sat for examination.
+          The alienist&rsquo;s drawer for this name is empty. Perhaps the file was destroyed; perhaps the patient never sat for examination.
         </p>
         <p style={{ marginTop: "1.5rem" }}>
           <Link href="/">Return to the Cabinet →</Link>

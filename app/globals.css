@@ -343,3 +343,208 @@
   --font-accent: "Old Standard TT", Georgia, serif;
 }
 
+/* ---------------------------------------------------------------------
+ * Legal / informational pages — /privacy, /terms, /accessibility.
+ * Wears the Cabinet's bone-on-shadow palette, no per-monster accent.
+ * One column, generous measure, calm headings.
+ * ------------------------------------------------------------------- */
+.legal {
+  --measure: 42rem;
+  max-width: 100%;
+  padding: 5rem 1.5rem 6rem;
+  margin: 0 auto;
+}
+.legal__header,
+.legal__body {
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+.legal__eyebrow {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  color: var(--color-cabinet-accent);
+  margin: 0;
+}
+.legal__title {
+  font-family: var(--font-display-default);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.25rem, 3vw + 1rem, 3.5rem);
+  line-height: 1.05;
+  margin: 0.4rem 0 1.25rem;
+  color: var(--color-cabinet-ink);
+}
+.legal__lede {
+  font-family: var(--font-body-default);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  opacity: 0.92;
+  max-width: 38rem;
+  margin: 0;
+}
+.legal__meta {
+  margin: 1.25rem 0 0;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.legal__return {
+  margin: 0.6rem 0 0;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.legal__return a {
+  text-decoration: none;
+  color: var(--color-cabinet-ink);
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 180ms ease, color 180ms ease;
+}
+.legal__return a:hover,
+.legal__return a:focus-visible {
+  color: var(--color-cabinet-accent);
+  border-bottom-color: var(--color-cabinet-accent);
+}
+.legal__body {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-cabinet-rule);
+}
+.legal__section {
+  margin: 0 0 2.5rem;
+}
+.legal__section h2 {
+  font-family: var(--font-display-default);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.35rem, 1.5vw + 0.75rem, 1.85rem);
+  line-height: 1.2;
+  margin: 0 0 0.9rem;
+  color: var(--color-cabinet-ink);
+}
+.legal__section p {
+  font-family: var(--font-body-default);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  opacity: 0.92;
+}
+.legal__section p:last-child {
+  margin-bottom: 0;
+}
+.legal__signature {
+  font-family: var(--font-display-default);
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.75;
+  margin: 2.5rem 0 0;
+  text-align: right;
+}
+.legal__footer {
+  margin: 3rem 0 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-cabinet-rule);
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.legal__footer a {
+  text-decoration: none;
+  color: var(--color-cabinet-ink);
+}
+.legal__footer a:hover { color: var(--color-cabinet-accent); }
+
+/* Thai legibility tweaks — slightly larger, slightly looser. */
+[data-locale="th"] .legal__section p { font-size: 1.05rem; line-height: 1.8; }
+[data-locale="th"] .legal__lede        { line-height: 1.75; }
+
+/* ---------------------------------------------------------------------
+ * Colophon — the persistent fine-print footer.
+ * Two variants:
+ *   .cos-colophon--full     — bottom of long-form pages.
+ *   .cos-colophon--compact  — only the link row; used on the home stage.
+ * ------------------------------------------------------------------- */
+.cos-colophon {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-cabinet-ink);
+  opacity: 0.7;
+}
+.cos-colophon a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 180ms ease, color 180ms ease;
+}
+.cos-colophon a:hover,
+.cos-colophon a:focus-visible {
+  color: var(--color-cabinet-accent);
+  border-bottom-color: var(--color-cabinet-accent);
+}
+.cos-colophon__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem 1rem;
+}
+.cos-colophon__links li {
+  position: relative;
+}
+.cos-colophon__links li + li::before {
+  content: "·";
+  position: absolute;
+  left: -0.65rem;
+  opacity: 0.6;
+}
+
+.cos-colophon--full {
+  max-width: 44rem;
+  margin: 4rem auto 0;
+  padding: 2.5rem 1.5rem 3rem;
+  border-top: 1px solid var(--color-cabinet-rule);
+  display: grid;
+  gap: 0.85rem;
+}
+.cos-colophon__pledge,
+.cos-colophon__license,
+.cos-colophon__copy {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.cos-colophon__pledge { opacity: 0.85; color: var(--color-cabinet-accent); }
+.cos-colophon__license { opacity: 0.6; }
+.cos-colophon__copy { opacity: 0.55; margin-top: 0.5rem; }
+
+.cos-colophon--compact {
+  margin: 1rem auto 0;
+  padding: 0 1rem;
+  opacity: 0.55;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+}
+.cos-colophon--compact .cos-colophon__links {
+  gap: 0.35rem 0.85rem;
+}
+
+/* Mobile landscape — keep the home colophon tiny. */
+@media (orientation: landscape) and (max-height: 480px) {
+  .cos-colophon--compact { display: none; }
+}
+
