@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "cabinet-of-shadows.vercel.app" }],
+      "destination": "https://cabinetofshadows.me/:path*",
+      "permanent": true
+    }
+  ]
+}
