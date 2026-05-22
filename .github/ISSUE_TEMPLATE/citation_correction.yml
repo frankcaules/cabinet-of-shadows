@@ -1,0 +1,48 @@
+name: Citation correction
+description: A citation in a dossier is mis-attributed, wrong year, dead DOI, or misrepresents the paper.
+title: "citation: "
+labels: ["citation", "documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Citation accuracy is the spine of this project — thank you for catching this. The more specific, the better.
+
+  - type: input
+    id: dossier
+    attributes:
+      label: Which dossier?
+      placeholder: "/en/dossier/dracula"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Which section?
+      options:
+        - "Clinical Note (inline citation)"
+        - "Diagnosis card (further reading)"
+        - "Bibliography page (/sources)"
+        - "Other / multiple"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: What the site currently says
+      description: Quote the line, or paste the citation as it appears.
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: What it should say, and why
+      description: |
+        If a year is wrong, give the correct year. If a paper is mis-attributed, give the correct paper. If the alienist misrepresents the paper's argument, quote the passage from the paper that contradicts the dossier's reading.
+
+        Citing your source helps a lot.
+    validations:
+      required: true

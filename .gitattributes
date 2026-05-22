@@ -1,0 +1,35 @@
+# Normalise line endings — text files commit as LF, check out native.
+* text=auto eol=lf
+
+# Force-LF for cross-platform tooling files
+*.sh         text eol=lf
+*.yml        text eol=lf
+*.yaml       text eol=lf
+*.json       text eol=lf
+*.ts         text eol=lf
+*.tsx        text eol=lf
+*.js         text eol=lf
+*.mjs        text eol=lf
+*.css        text eol=lf
+*.md         text eol=lf
+*.html       text eol=lf
+*.svg        text eol=lf
+
+# Binary assets — never normalise.
+*.webp       binary
+*.png        binary
+*.jpg        binary
+*.jpeg       binary
+*.gif        binary
+*.ico        binary
+*.woff       binary
+*.woff2      binary
+*.ttf        binary
+*.otf        binary
+*.mp3        binary
+*.opus       binary
+*.webm       binary
+*.mp4        binary
+
+# Mark generated lockfile so GitHub collapses it in diffs.
+pnpm-lock.yaml  linguist-generated

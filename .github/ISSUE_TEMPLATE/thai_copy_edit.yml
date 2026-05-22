@@ -1,0 +1,40 @@
+name: Thai copy edit
+description: A line of Thai prose reads awkwardly, breaks register, or calques from English.
+title: "th: "
+labels: ["i18n", "thai", "copy"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. The Thai translations were hand-written, but the editor is not a native Thai reader — copy edits from native readers are exactly what we need.
+
+  - type: input
+    id: where
+    attributes:
+      label: Where on the site?
+      placeholder: "/th/dossier/carmilla — Clinical Note, second paragraph"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: The current Thai text
+      description: Quote the line that needs work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested
+    attributes:
+      label: Suggested replacement
+      description: Your proposed rewrite.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: |
+        Brief note on the issue — wrong register, calque from English, ambiguous wording, unidiomatic phrasing, etc. Tone matters as much as accuracy here; we are aiming for formal literary Thai with light scholarly archaism.

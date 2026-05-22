@@ -1,0 +1,55 @@
+name: Bug report
+description: Something on the site is broken — a layout, a transition, a font, a route.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to file a report. A handful of specifics will help us fix it faster.
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Where on the site did you see this?
+      placeholder: "https://cabinetofshadows.me/en/dossier/dracula"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Describe the bug. What did you do, what did you see, what did you expect?
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser & version
+      placeholder: "Firefox 128 on Windows 11 / Safari 17 on iPhone 15"
+    validations:
+      required: true
+
+  - type: input
+    id: viewport
+    attributes:
+      label: Viewport size (if layout-related)
+      placeholder: "1440 × 900 / 390 × 844"
+
+  - type: dropdown
+    id: reduced_motion
+    attributes:
+      label: Was `prefers-reduced-motion` set?
+      options:
+        - "No"
+        - "Yes"
+        - "I'm not sure"
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot or video
+      description: Drag and drop. Helps enormously, especially for layout and animation bugs.

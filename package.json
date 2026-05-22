@@ -1,8 +1,37 @@
 {
   "name": "cabinet-of-shadows",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "description": "A Victorian alienist's casebook of the monsters of Gothic literature, paired with real peer-reviewed psychology research.",
+  "description": "A Victorian alienist's casebook of the monsters of Gothic literature, paired with real peer-reviewed psychology research. Bilingual (EN + TH), zero analytics, zero tracking.",
+  "homepage": "https://cabinetofshadows.me",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncsergiis/cabinet-of-shadows.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ncsergiis/cabinet-of-shadows/issues",
+    "email": "frank.caules@gmail.com"
+  },
+  "author": {
+    "name": "Frank Caules",
+    "email": "frank.caules@gmail.com",
+    "url": "https://cabinetofshadows.me"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "gothic-literature",
+    "victorian-psychiatry",
+    "science-communication",
+    "interactive-essay",
+    "long-form",
+    "bilingual",
+    "thai",
+    "nextjs",
+    "tailwind",
+    "threejs",
+    "no-tracking",
+    "wcag"
+  ],
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--no-experimental-webstorage next dev",
     "build": "next build",
@@ -11,7 +40,14 @@
     "typecheck": "tsc --noEmit"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22",
+    "pnpm": ">=10"
+  },
+  "packageManager": "pnpm@10.0.0",
+  "pnpm": {
+    "overrides": {
+      "postcss@<8.5.10": "^8.5.10"
+    }
   },
   "dependencies": {
     "@fontsource/abril-fatface": "^5.2.7",
@@ -57,6 +93,7 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
     "@tailwindcss/postcss": "^4.0.0-beta.6",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",

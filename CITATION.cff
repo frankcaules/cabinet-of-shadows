@@ -1,0 +1,39 @@
+# If you cite this work, this is the canonical machine-readable form.
+# Renders on the GitHub repository page as a "Cite this repository" button.
+cff-version: 1.2.0
+title: "The Cabinet of Shadows: A Victorian alienist's casebook of the monsters of Gothic literature"
+message: "If you reference this work in academic or editorial writing, please cite it as below."
+type: software
+authors:
+  - family-names: Caules
+    given-names: Frank
+    email: frank.caules@gmail.com
+repository-code: "https://github.com/ncsergiis/cabinet-of-shadows"
+url: "https://cabinetofshadows.me"
+abstract: >
+  An interactive, long-form science-communication site presenting thirteen
+  classic monsters of nineteenth-century Gothic literature as the patients
+  of an unnamed Victorian alienist. Each dossier pairs a literary reading
+  of the source novel with a contemporary peer-reviewed psychological
+  phenomenon — including disorganised attachment, clinical lycanthropy,
+  mass sociogenic illness, depersonalisation, the Unheimliche, and
+  narcissistic personality structure — with full, live-DOI citations.
+  Bilingual in English and Thai.
+keywords:
+  - gothic literature
+  - psychology of horror
+  - science communication
+  - clinical lycanthropy
+  - disorganised attachment
+  - depersonalisation
+  - mass sociogenic illness
+  - the Unheimliche
+  - Dracula
+  - Frankenstein
+  - Mr Hyde
+  - bilingual
+  - Thai
+license: "CC-BY-NC-SA-4.0"
+license-url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+version: "1.0.0"
+date-released: 2026-05-22

@@ -1,0 +1,11 @@
+# Hide the generic "Open a blank issue" link — funnel reporters into a
+# template so reports arrive shaped enough to act on.
+blank_issues_enabled: false
+
+contact_links:
+  - name: Security vulnerability
+    url: mailto:frank.caules@gmail.com?subject=%5Bsecurity%5D%20
+    about: Please report security vulnerabilities privately by email — never in a public GitHub issue.
+  - name: Accessibility report
+    url: mailto:frank.caules@gmail.com?subject=%5Baccessibility%5D%20
+    about: Accessibility reports go straight to the editor by email; we treat them at the same priority as security bugs.
