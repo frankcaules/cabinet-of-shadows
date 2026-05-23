@@ -10,14 +10,14 @@ const COPY: Record<Locale, { eyebrow: string; title: string; body: string; small
     eyebrow: "A note from the alienist",
     title: "What you are reading",
     body: "This is a casebook — part literary essay, part clinical assessment. Each entry pairs a monster of Gothic literature with the psychological phenomenon they make legible. Every clinical claim is cited; the footnotes link to the source papers so that you may fact-check at your leisure.",
-    small: "Use the numerals at the right edge to navigate the four chapters. Audio is off by default; the toggle is in the corner.",
+    small: "Use the numerals at the right edge to navigate the four chapters.",
     cta: "begin the case",
   },
   th: {
     eyebrow: "บันทึกจากอลีนิสต์",
     title: "ท่านกำลังอ่านสิ่งใด",
     body: "เอกสารฉบับนี้เป็นแฟ้มคดี — ส่วนหนึ่งคือบทวิจารณ์วรรณกรรม อีกส่วนคือการประเมินผลทางคลินิก แต่ละสำนวนจับคู่ปีศาจของวรรณกรรมกอธิคเข้ากับปรากฏการณ์ทางจิตวิทยาที่ผู้ป่วยนั้นเปิดเผยให้เห็น ทุกข้ออ้างทางคลินิกมีการอ้างอิง เชิงอรรถเชื่อมโยงไปยังเอกสารต้นทางเพื่อให้ท่านตรวจสอบได้ตามอัธยาศัย",
-    small: "ใช้เลขโรมันที่ขอบขวาในการนำทางทั้งสี่บท เสียงปิดอยู่เป็นค่าตั้งต้น สวิตช์อยู่ที่มุมจอ",
+    small: "ใช้เลขโรมันที่ขอบขวาในการนำทางทั้งสี่บท",
     cta: "เริ่มสำนวน",
   },
 };

@@ -69,7 +69,7 @@ const COPY: Record<Locale, PrivacyCopy> = {
       {
         heading: "Third parties",
         paragraphs: [
-          "The site loads no third-party scripts at all. The fonts are self-hosted (via @fontsource, served from the same origin). The illustrations and audio are self-hosted. The 3D models are self-hosted. There is no CDN-loaded jQuery, no Google Fonts, no Typekit, no embedded YouTube player, no Disqus, no anything of that kind.",
+          "The site loads no third-party scripts at all. The fonts are self-hosted (via @fontsource, served from the same origin). The illustrations are self-hosted. The 3D models are self-hosted. There is no CDN-loaded jQuery, no Google Fonts, no Typekit, no embedded YouTube player, no Disqus, no anything of that kind.",
           "Outbound links — to DOIs at doi.org, to the editors' email address — open in your browser in the normal way; the destination site then operates under its own privacy policy. We have no control over, and no relationship with, those destinations beyond linking to them.",
         ],
       },
@@ -144,7 +144,7 @@ const COPY: Record<Locale, PrivacyCopy> = {
       {
         heading: "บุคคลที่สาม",
         paragraphs: [
-          "เว็บไซต์นี้ไม่โหลดสคริปต์จากบุคคลที่สามใด ๆ ทั้งสิ้น ฟอนต์ถูกโฮสต์เอง (ผ่าน @fontsource บนโดเมนเดียวกัน) ภาพประกอบและเสียงถูกโฮสต์เอง โมเดล 3 มิติถูกโฮสต์เอง ไม่มี jQuery จาก CDN ไม่มี Google Fonts ไม่มี Typekit ไม่มี YouTube ฝัง ไม่มี Disqus ไม่มีสิ่งใดในประเภทนั้น",
+          "เว็บไซต์นี้ไม่โหลดสคริปต์จากบุคคลที่สามใด ๆ ทั้งสิ้น ฟอนต์ถูกโฮสต์เอง (ผ่าน @fontsource บนโดเมนเดียวกัน) ภาพประกอบถูกโฮสต์เอง โมเดล 3 มิติถูกโฮสต์เอง ไม่มี jQuery จาก CDN ไม่มี Google Fonts ไม่มี Typekit ไม่มี YouTube ฝัง ไม่มี Disqus ไม่มีสิ่งใดในประเภทนั้น",
           "ลิงก์ภายนอก เช่น ลิงก์ DOI ที่ doi.org หรืออีเมลของกองบรรณาธิการ จะเปิดในเบราว์เซอร์ของท่านตามปกติ จากนั้นเว็บไซต์ปลายทางจะดำเนินงานภายใต้นโยบายความเป็นส่วนตัวของตนเอง เราไม่มีอำนาจควบคุมและไม่มีความสัมพันธ์กับปลายทางเหล่านั้น เว้นแต่การลิงก์ไปหา",
         ],
       },

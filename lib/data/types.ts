@@ -102,7 +102,7 @@ export const DEFAULT_LOCALE: Locale = "en";
 
 /**
  * LocalizedMonster — a monster's translatable content keyed by locale.
- * Untranslatable fields (slug, palette, typography, sigil, audio, transition)
+ * Untranslatable fields (slug, palette, typography, sigil, transition)
  * live at the top level. Translatable fields (name, epithet, source.title,
  * source.author wording, sourceQuote, legend, anxiety, clinicalNote, diagnosis)
  * are nested under `content[locale]`.

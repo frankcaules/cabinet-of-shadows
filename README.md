@@ -68,7 +68,7 @@ cabinetofshadows.me/en/privacy               the no-tracking pledge
 | ✅ Original prose, English and Thai, hand-written | ❌ No analytics. None. Not Google, not Plausible, not Vercel's, not anything. |
 | ✅ ~80 peer-reviewed citations with live DOIs, fact-checkable | ❌ No cookies. None. No banner because none to consent to. |
 | ✅ Self-hosted fonts via `@fontsource` | ❌ No third-party JS. No Google Fonts. No CDN-jQuery. No anything. |
-| ✅ Self-hosted illustrations and audio | ❌ No accounts, no forms, no newsletter, no "share your email" |
+| ✅ Self-hosted illustrations and 3D assets | ❌ No accounts, no forms, no newsletter, no "share your email" |
 | ✅ Three.js hub with full keyboard fallback | ❌ No paywall. No subscription. No ads. No affiliate links. |
 | ✅ Full bilingual i18n (EN + TH) | ❌ No machine translation; Thai is hand-written |
 | ✅ `prefers-reduced-motion` honoured at every layer | ❌ No flashing content; checked against WCAG 2.3.1 |

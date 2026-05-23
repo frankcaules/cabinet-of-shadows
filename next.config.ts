@@ -6,10 +6,9 @@ import type { NextConfig } from "next";
  * Content-Security-Policy is the heaviest hitter — it whitelists the
  * sources the browser is allowed to load resources from. The site is
  * mostly self-contained: SSR'd HTML, self-hosted fonts (@fontsource),
- * WebP images, .opus audio (removed but kept in policy for safety),
- * .webm videos, all from the same origin. Two outbound link targets
- * are needed: doi.org for citation links, and Vercel's own asset CDN
- * which Next.js may use for chunks.
+ * WebP images, .webm videos, all from the same origin. Two outbound
+ * link targets are needed: doi.org for citation links, and Vercel's
+ * own asset CDN which Next.js may use for chunks.
  *
  * `'unsafe-inline'` in style-src is required because Next.js inlines
  * critical CSS and component-level <style> blocks; we can't drop it
