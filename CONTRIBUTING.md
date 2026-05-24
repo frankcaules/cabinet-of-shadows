@@ -75,12 +75,16 @@ that "modernise" or "simplify" the prose will not be merged. The same
 applies to the Thai translations — they are tonal sister documents, not
 literal renderings.
 
-### Adding analytics or tracking
-The no-tracking pledge at [/privacy](https://cabinetofshadows.me/en/privacy)
-is structural. Pull requests that add Google Analytics, Plausible,
-Vercel Analytics, or any other tracker — even "for performance
-monitoring" — will not be merged. The same applies to cookies, account
-systems, comment systems, newsletter signups, and contact forms.
+### Adding more analytics or tracking
+The site already loads Google Tag Manager and Google Analytics 4 with
+IP anonymized at collection. Pull requests that add a second analytics
+or product-telemetry tracker (Plausible, Fathom, Mixpanel, PostHog,
+Segment, LogRocket, Hotjar, Sentry RUM, etc.), enable GA4's advertising
+features, link a user ID, or otherwise expand what is collected will
+not be merged. The same applies to additional cookies, account systems,
+comment systems, newsletter signups, and contact forms. The current
+GA4 setup is what is shipped; the disclosure is at
+[/privacy](https://cabinetofshadows.me/en/privacy).
 
 ### Adding dependencies
 Every new runtime dependency expands the supply-chain attack surface,

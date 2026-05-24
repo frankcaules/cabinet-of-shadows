@@ -10,7 +10,7 @@
 [![Deploy](https://img.shields.io/github/actions/workflow/status/frankcaules/cabinet-of-shadows/deploy.yml?branch=main&style=flat-square&label=deploy)](https://github.com/frankcaules/cabinet-of-shadows/actions/workflows/deploy.yml)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue?style=flat-square)](./LICENSE)
 [![Prose: CC BY-NC-SA 4.0](https://img.shields.io/badge/prose-CC%20BY--NC--SA%204.0-green?style=flat-square)](./LICENSE)
-[![No tracking](https://img.shields.io/badge/tracking-none-success?style=flat-square)](./app/[locale]/privacy/page.tsx)
+[![Analytics: GA4 (anonymized)](https://img.shields.io/badge/analytics-GA4%20%28anonymized%29-D4A574?style=flat-square)](./app/[locale]/privacy/page.tsx)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org)
 [![Made by Frank Caules](https://img.shields.io/badge/made%20by-Frank%20Caules-D4A574?style=flat-square)](mailto:frank.caules@gmail.com)
 
@@ -56,7 +56,7 @@ cabinetofshadows.me/en/dossier/dracula       a sample case (English)
 cabinetofshadows.me/th/dossier/dracula       the same case (Thai)
 cabinetofshadows.me/en/sources               the full bibliography
 cabinetofshadows.me/en/the-alienist          a note from the editors
-cabinetofshadows.me/en/privacy               the no-tracking pledge
+cabinetofshadows.me/en/privacy               the analytics disclosure
 ```
 
 ---
@@ -65,9 +65,9 @@ cabinetofshadows.me/en/privacy               the no-tracking pledge
 
 | Yes | No |
 |---|---|
-| ✅ Original prose, English and Thai, hand-written | ❌ No analytics. None. Not Google, not Plausible, not Vercel's, not anything. |
-| ✅ ~80 peer-reviewed citations with live DOIs, fact-checkable | ❌ No cookies. None. No banner because none to consent to. |
-| ✅ Self-hosted fonts via `@fontsource` | ❌ No third-party JS. No Google Fonts. No CDN-jQuery. No anything. |
+| ✅ Original prose, English and Thai, hand-written | ✅ Analytics: GA4 page views via GTM, IP anonymized at collection. No PII, no ad features. |
+| ✅ ~80 peer-reviewed citations with live DOIs, fact-checkable | ✅ One first-party cookie (`_ga`). No banner — single analytics cookie, see /privacy. |
+| ✅ Self-hosted fonts via `@fontsource` | ❌ No third-party JS beyond Google Tag Manager / GA4. No Google Fonts. No CDN-jQuery. |
 | ✅ Self-hosted illustrations and 3D assets | ❌ No accounts, no forms, no newsletter, no "share your email" |
 | ✅ Three.js hub with full keyboard fallback | ❌ No paywall. No subscription. No ads. No affiliate links. |
 | ✅ Full bilingual i18n (EN + TH) | ❌ No machine translation; Thai is hand-written |
@@ -76,7 +76,7 @@ cabinetofshadows.me/en/privacy               the no-tracking pledge
 | ✅ Strict CSP, HSTS preload, COOP/CORP, frame-ancestors none | ❌ No `X-Powered-By`. No version disclosure. |
 | ✅ AI training: explicit `robots.txt` opt-out + EU Article 4 | ❌ No license to train models on this work |
 
-The full receipt for the no-tracking claim is at
+The full analytics disclosure is at
 [**/privacy**](https://cabinetofshadows.me/en/privacy). The full security
 posture is in [**SECURITY.md**](./SECURITY.md). The full accessibility
 statement is at [**/accessibility**](https://cabinetofshadows.me/en/accessibility).
@@ -122,7 +122,7 @@ cabinet-of-shadows/
 │   │   ├── dossier/[monster]/    the 13 case files
 │   │   ├── the-alienist/         editorial note
 │   │   ├── sources/              the full bibliography
-│   │   ├── privacy/              the no-tracking pledge
+│   │   ├── privacy/              the analytics disclosure
 │   │   ├── terms/                conditions of use
 │   │   └── accessibility/        accessibility statement
 │   ├── robots.ts                 AI-crawler opt-out
@@ -209,18 +209,23 @@ in **[/the-alienist](https://cabinetofshadows.me/en/the-alienist)**.
 
 ---
 
-## On the no-tracking pledge
+## On analytics
 
-Open your browser's developer tools. Go to the Network tab. Reload
-[any page here](https://cabinetofshadows.me). Watch every request.
-They all go to `cabinetofshadows.me` (or to Vercel's edge, which is how
-the bytes reach you, not a tracker). No analytics beacons go out.
-No third-party scripts load. No cookies are set.
+The site loads Google Tag Manager, which loads Google Analytics 4.
+We record page views (which URLs are visited), session duration,
+screen size, referring URL, and country of access — all with IP
+addresses truncated at the GA4 collection edge. We have not enabled
+Google Signals, demographic reporting, advertising features, or any
+user-ID linkage. There are no third-party scripts beyond GTM / GA4
+and no other cookies beyond `_ga`.
 
-We did not turn analytics off. We never turned them on. There has
-never been a tracker on this site. The full audit is at
-[/privacy](https://cabinetofshadows.me/en/privacy); the source code is
-this repository, in the open.
+Earlier versions of this site loaded nothing of the sort. We changed
+our minds: a coarse, anonymized signal for which dossiers actually
+get read helps direct translation effort, bibliography work, and
+future writing. The full disclosure, including how to opt out, is at
+[/privacy](https://cabinetofshadows.me/en/privacy); the source code
+is this repository, in the open. Run a diff against the privacy file
+to see exactly when the change was made.
 
 ---
 

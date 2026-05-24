@@ -1,9 +1,12 @@
 # Security policy
 
 The Cabinet of Shadows is a static, content-only site with no user
-accounts, no comments, no APIs that accept user input, and no analytics
-or tracking. Its attack surface is small but not zero. This document
-explains what we ship and how to report something we missed.
+accounts, no comments, and no APIs that accept user input. The only
+third-party JavaScript loaded is Google Tag Manager (which loads
+Google Analytics 4, IP-anonymized at collection — full disclosure at
+[/privacy](https://cabinetofshadows.me/en/privacy)). Its attack
+surface is small but not zero. This document explains what we ship
+and how to report something we missed.
 
 ## What the site is, and isn't
 
@@ -17,9 +20,11 @@ JavaScript drives:
 - a language switcher (`next/link` navigation only)
 
 **Isn't.** No server-side database, no API routes, no authentication, no
-forms that POST, no cookies, no session storage of personal data, no
-third-party scripts of any kind (no analytics, no fonts CDN, no chat
-widgets, no ad networks). No user-generated content is ever rendered.
+forms that POST, no session storage of personal data. The only
+third-party scripts loaded are Google Tag Manager and Google Analytics
+4 (anonymized page views — see [/privacy](https://cabinetofshadows.me/en/privacy));
+no fonts CDN, no chat widgets, no ad networks. The only cookie set is
+GA4's `_ga`. No user-generated content is ever rendered.
 
 ## Defenses in production
 
@@ -27,7 +32,7 @@ widgets, no ad networks). No user-generated content is ever rendered.
 |---|---|
 | HTTPS | Let's Encrypt cert via Vercel, auto-renewing |
 | HSTS | `max-age=63072000; includeSubDomains; preload` |
-| Content-Security-Policy | Strict default-src 'self'; allowlists `data:` only for images and fonts |
+| Content-Security-Policy | `default-src 'self'`; narrow allowlists for GTM (`*.googletagmanager.com`) and GA4 (`*.google-analytics.com`, `*.analytics.google.com`) on script/img/connect/frame-src only |
 | frame-ancestors | `'none'` (the site cannot be iframed by anyone) |
 | X-Frame-Options | `DENY` (legacy clickjacking defense) |
 | X-Content-Type-Options | `nosniff` |

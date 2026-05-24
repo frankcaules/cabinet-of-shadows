@@ -22,15 +22,23 @@ import type { NextConfig } from "next";
  * COOP/CORP/COEP keep the site isolated from cross-origin attackers
  * (Spectre-class). 'same-origin' is the strict default.
  */
+// Google Tag Manager / GA4 endpoints whitelisted below. GTM loads
+// scripts from *.googletagmanager.com and sends beacons to
+// *.google-analytics.com and *.analytics.google.com. The GTM Preview
+// mode also iframes www.googletagmanager.com — hence frame-src.
+const GTM_SCRIPT = "https://*.googletagmanager.com";
+const GA_BEACONS = "https://*.google-analytics.com https://*.analytics.google.com";
+
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline' ${GTM_SCRIPT}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  `img-src 'self' data: blob: ${GA_BEACONS} ${GTM_SCRIPT}`,
   "font-src 'self' data:",
   "media-src 'self'",
-  "connect-src 'self'",
+  `connect-src 'self' ${GA_BEACONS} ${GTM_SCRIPT}`,
   "frame-ancestors 'none'",
+  `frame-src ${GTM_SCRIPT}`,
   "base-uri 'self'",
   "form-action 'self'",
   "object-src 'none'",

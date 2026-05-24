@@ -5,7 +5,7 @@ import { t } from "@/lib/i18n/messages";
 interface ColophonProps {
   locale: Locale;
   /** When true, render the larger "long-form" colophon with copyright,
-   *  no-tracking pledge, license note, and the full link row.
+   *  analytics disclosure, license note, and the full link row.
    *  When false, render only the link row (used on the home page so the
    *  cinematic hub isn't crowded). */
   variant?: "full" | "compact";
@@ -14,14 +14,14 @@ interface ColophonProps {
 /**
  * Colophon — the persistent fine-print footer.
  *
- * Carries the legal links (privacy, terms, accessibility), the no-tracking
- * pledge, the dual-license note, and the link out to the source on GitHub
- * and the editors' email.
+ * Carries the legal links (privacy, terms, accessibility), the analytics
+ * disclosure, the dual-license note, and the link out to the source on
+ * GitHub and the editors' email.
  *
  * Two variants:
  *   • full     — used at the bottom of long-form pages (alienist, sources,
  *                privacy, terms, accessibility, dossier closing). Sets
- *                copyright, no-tracking, and license alongside the links.
+ *                copyright, analytics disclosure, and license alongside the links.
  *   • compact  — used on the 3D home page. Only the link row, opacity dimmed,
  *                so it doesn't compete with the cinematic stage.
  *

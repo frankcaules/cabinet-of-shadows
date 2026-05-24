@@ -4,6 +4,7 @@ import "./globals.css";
 import "@fontsource/eb-garamond/400.css";
 import "@fontsource/eb-garamond/600.css";
 import "@fontsource/eb-garamond/400-italic.css";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { MotionProvider } from "@/components/a11y/MotionProvider";
 import { LenisProvider } from "@/components/scroll/LenisProvider";
 import { SkipLink } from "@/components/a11y/SkipLink";
@@ -75,8 +76,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   return (
     <html lang="en" suppressHydrationWarning>
+      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <body>
         <MotionProvider>
           <LenisProvider>
