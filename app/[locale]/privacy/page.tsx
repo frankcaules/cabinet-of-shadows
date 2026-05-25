@@ -9,9 +9,9 @@ export function generateStaticParams() {
 }
 
 export const metadata = {
-  title: "Privacy",
+  title: "Privacy Policy",
   description:
-    "The Cabinet of Shadows uses Google Analytics 4 via Google Tag Manager, with IP-anonymized page views and no other tracking. This page documents what is collected and how to opt out.",
+    "Privacy Policy for The Cabinet of Shadows: data controller identity, what is collected (GA4 page views, IP-anonymized), legal basis, retention, your rights under GDPR / UK GDPR / CCPA / CPRA / LGPD / PDPA, international transfers, and how to opt out.",
 };
 
 interface PrivacyCopy {
@@ -27,8 +27,8 @@ interface PrivacyCopy {
 const COPY: Record<Locale, PrivacyCopy> = {
   en: {
     eyebrow: "A note on privacy",
-    title: "What this site collects",
-    lede: "Page views, with the IP address anonymized at collection, sent to Google Analytics 4 through a Google Tag Manager container. That is the short answer. The remainder of this page documents exactly what is collected, why this changed from a previous version of this notice, and how to opt out.",
+    title: "Privacy Policy",
+    lede: "Page views, with the IP address anonymized at collection, sent to Google Analytics 4 through a Google Tag Manager container. That is the short answer. The remainder of this page documents exactly what is collected, the legal basis for collecting it, how long it is kept, who the data controller is, the rights you have under the GDPR, the UK GDPR, the CCPA / CPRA, the LGPD, the PDPA, and similar regimes, and how to opt out at any time.",
     lastUpdated: "Last reviewed: May 2026 (substantial revision: analytics added)",
     back: "← back to the Cabinet",
     sections: [
@@ -38,6 +38,15 @@ const COPY: Record<Locale, PrivacyCopy> = {
           "The Cabinet of Shadows loads Google Tag Manager on every page. That container in turn loads Google Analytics 4. Together they record: page views (which URLs are visited), approximate session duration, screen size, the referring URL, and the country of access (not city, not street, not anything that resolves to a person). IP addresses are truncated at the Google Analytics collection edge before storage. We have not enabled Google Signals, demographic reporting, advertising features, or any user-ID linkage.",
           "You can verify the only outbound tracking traffic by opening your browser's developer tools, switching to the Network tab, and reloading any page on this site. Requests to googletagmanager.com (the container) and google-analytics.com (the beacon endpoint) will appear; everything else is either cabinetofshadows.me itself or the Vercel edge that delivers it to you.",
           "A previous version of this notice asserted that no analytics were loaded. That is no longer accurate, and we explain the change below.",
+        ],
+      },
+      {
+        heading: "Data controller, legal basis, and retention",
+        paragraphs: [
+          "For the purposes of the EU General Data Protection Regulation (GDPR), the UK GDPR, Brazil's Lei Geral de Proteção de Dados (LGPD), Thailand's Personal Data Protection Act (PDPA), and Canada's PIPEDA, the data controller of this site is Frank Caules, reachable at frank.caules@gmail.com. The site is operated as a personal, non-commercial publication; no legal entity sits behind it, and no joint controllership arrangement applies.",
+          "The legal basis on which we process the small amount of personal data that does pass through this site is legitimate interest (GDPR Article 6(1)(f) and equivalents). The legitimate interest is operating and improving a freely readable casebook of original science writing: aggregated page-view counts let us see which dossiers are read and which are not, which informs translation and bibliography priorities. No personal data is processed for marketing, profiling, advertising, sale, or onward disclosure.",
+          "Retention. The GA4 user-data retention is set to fourteen (14) months, after which event-level data is automatically deleted from Google's systems. The _ga first-party cookie expires after two years of no return visit. Vercel's request logs (containing your IP address for the standard length of time required to serve a web page) are governed by Vercel's own privacy policy at vercel.com/legal/privacy-policy and we do not retain copies. We keep no personal data of our own on any device under our control.",
+          "Automated decision-making. None. We do not profile readers, score them, or make any automated decisions that produce legal or similarly significant effects on you (GDPR Article 22 and equivalents).",
         ],
       },
       {
@@ -78,9 +87,28 @@ const COPY: Record<Locale, PrivacyCopy> = {
         ],
       },
       {
+        heading: "International data transfers",
+        paragraphs: [
+          "Vercel operates a global content-delivery network with edge nodes in many countries; depending on where you are, the bytes of this page may reach you from a server in the United States, the European Union, Singapore, or elsewhere. Vercel is a United States company; for readers in the United Kingdom, the European Economic Area, Switzerland, Brazil, and other jurisdictions with cross-border-transfer rules, Vercel's data processing is covered by Standard Contractual Clauses (or local equivalents) as documented in their Data Processing Agreement.",
+          "Google Analytics 4 processes data in the United States. For readers in the EEA, the United Kingdom, and Switzerland, Google operates under the EU-US Data Privacy Framework (DPF), the UK Extension to the DPF, and the Swiss-US DPF — current adequacy decisions issued by the European Commission and the Swiss Federal Data Protection and Information Commissioner — supplemented by Standard Contractual Clauses where required. Google's relevant terms and supplementary measures are documented at business.safety.google/adscontrollerterms and policies.google.com/privacy/frameworks.",
+          "If you would prefer that no transfer to either party take place, a content blocker, GPC/DNT, the official Google Analytics opt-out add-on, or a VPN / Tor will reliably prevent the GA4 transfer; only the Vercel CDN transfer (which is required to send you the page itself) cannot be avoided while reading this site.",
+        ],
+      },
+      {
+        heading: "Your rights under international law",
+        paragraphs: [
+          "Wherever you are reading from, the data-protection law of your jurisdiction may grant you a set of rights over the personal data we process about you. Because we collect very little — essentially anonymized GA4 page views plus whatever CDN-level metadata Vercel handles to deliver the page — most of these rights are trivially satisfied. We list them here so you know they exist, and how to exercise them.",
+          "Under the GDPR and UK GDPR (readers in the European Union, the European Economic Area, the United Kingdom, and Switzerland) you have the right to: access the personal data we hold about you (Article 15); have inaccurate data rectified (Article 16); have data erased (\"the right to be forgotten\", Article 17); restrict processing (Article 18); receive your data in a portable format (Article 20); object to processing carried out on the basis of legitimate interest (Article 21); and not be subject to solely automated decision-making with legal or similarly significant effects (Article 22).",
+          "Under the CCPA and CPRA (California residents) you have the right to: know what personal information we collect, use, disclose, and share; delete the personal information we hold about you, with limited exceptions; correct inaccurate personal information; limit the use and disclosure of \"sensitive\" personal information (we collect none); opt out of the \"sale\" or \"sharing\" of personal information (we do neither and have never done either); and not be discriminated against for exercising any of these rights. The categories of personal information GA4 may collect on our behalf are identifiers (IP address, truncated at collection) and internet-activity information (URLs visited, referrer, approximate session duration). We do not sell or share personal information as those terms are defined under California law.",
+          "Under the LGPD (readers in Brazil) you have the rights listed in Article 18: confirmation of processing, access, correction, anonymization or deletion, portability, information about with whom data is shared, and revocation of consent. Under the PDPA (readers in Thailand) you have the rights listed in Sections 30–37: access, correction, deletion, restriction, portability, objection, and the right to withdraw consent. Under PIPEDA (readers in Canada) you have the right to access and correct your personal information and to challenge our compliance.",
+          "To exercise any of these rights, write to frank.caules@gmail.com with the subject [privacy request]. Tell us what right you are exercising and, if you can, enough information for us to identify the data you mean (for GA4, this is usually the device or browser you were reading from and the approximate dates). We will respond within thirty (30) days; for requests that require Google's cooperation, we will route them to Google on your behalf and write back with the outcome.",
+          "If you believe we have mishandled your personal data, you have the right to lodge a complaint with a supervisory authority. EU readers may complain to the data protection authority of their country of residence (the European Data Protection Board maintains a current list at edpb.europa.eu/about-edpb/about-edpb/members_en). UK readers may complain to the Information Commissioner's Office at ico.org.uk. Brazilian readers may complain to the ANPD at gov.br/anpd. Thai readers may complain to the Office of the Personal Data Protection Committee at pdpc.or.th. Canadian readers may complain to the Office of the Privacy Commissioner of Canada at priv.gc.ca. Californian readers may complain to the California Privacy Protection Agency at cppa.ca.gov.",
+        ],
+      },
+      {
         heading: "Children",
         paragraphs: [
-          "The Cabinet of Shadows is a piece of long-form science writing about classic Gothic literature and modern clinical psychology. It is not directed at children, but neither does it contain anything that would be inappropriate for an older child to read. We do not knowingly collect any individually identifying information from anyone, which trivially includes children, so questions of COPPA compliance do not arise here.",
+          "The Cabinet of Shadows is a piece of long-form science writing about classic Gothic literature and modern clinical psychology. It is not directed at children, but neither does it contain anything that would be inappropriate for an older child to read. We do not knowingly collect any individually identifying information from anyone, which trivially includes children under thirteen for the purposes of the United States COPPA, children under sixteen for the purposes of the GDPR's Article 8 baseline (subject to Member-State variation between thirteen and sixteen), and the equivalent thresholds under the LGPD, PDPA, and PIPEDA. If you are a parent or guardian who believes we have inadvertently collected information from a child, write to frank.caules@gmail.com and we will investigate and delete.",
         ],
       },
       {
@@ -107,8 +135,8 @@ const COPY: Record<Locale, PrivacyCopy> = {
   },
   th: {
     eyebrow: "บันทึกว่าด้วยความเป็นส่วนตัว",
-    title: "เว็บไซต์นี้เก็บข้อมูลอะไรบ้าง",
-    lede: "ยอดเข้าชมหน้า โดยที่อยู่ IP ถูกตัดให้เป็นนิรนามตั้งแต่ขั้นการเก็บ ถูกส่งไปยัง Google Analytics 4 ผ่านคอนเทนเนอร์ของ Google Tag Manager นี่คือคำตอบสั้น ที่เหลือของหน้านี้บันทึกว่ามีการเก็บข้อมูลใดบ้าง เหตุใดข้อความจึงเปลี่ยนจากประกาศฉบับก่อน และจะปฏิเสธการเก็บข้อมูลได้อย่างไร",
+    title: "นโยบายความเป็นส่วนตัว",
+    lede: "ยอดเข้าชมหน้า โดยที่อยู่ IP ถูกตัดให้เป็นนิรนามตั้งแต่ขั้นการเก็บ ถูกส่งไปยัง Google Analytics 4 ผ่านคอนเทนเนอร์ของ Google Tag Manager นี่คือคำตอบสั้น ที่เหลือของหน้านี้บันทึกว่ามีการเก็บข้อมูลใดบ้าง ฐานทางกฎหมายของการเก็บ ระยะเวลาเก็บรักษา ผู้ควบคุมข้อมูลคือใคร สิทธิของท่านภายใต้ GDPR, UK GDPR, CCPA / CPRA, LGPD, PDPA และระเบียบอื่นที่คล้ายกัน และจะปฏิเสธการเก็บข้อมูลได้อย่างไรในทุกเมื่อ",
     lastUpdated: "ตรวจทานครั้งล่าสุด: พฤษภาคม ค.ศ. 2026 (ปรับปรุงครั้งสำคัญ: เพิ่มการเก็บสถิติ)",
     back: "← กลับสู่ตู้แห่งเงา",
     sections: [
@@ -118,6 +146,15 @@ const COPY: Record<Locale, PrivacyCopy> = {
           "ตู้แห่งเงาโหลด Google Tag Manager ในทุกหน้า โดยคอนเทนเนอร์ดังกล่าวโหลด Google Analytics 4 ต่อเนื่องไป ทั้งสองรวมกันบันทึก: ยอดเข้าชมหน้า (URL ที่ถูกเข้าชม) ระยะเวลาเซสชันโดยประมาณ ขนาดหน้าจอ URL ที่อ้างถึง และประเทศที่เข้าชม (ไม่ใช่เมือง ไม่ใช่ที่อยู่ ไม่ใช่สิ่งใดที่ระบุตัวบุคคล) ที่อยู่ IP ถูกตัดให้เป็นนิรนามที่ขอบการเก็บของ Google Analytics ก่อนการจัดเก็บ เราไม่ได้เปิดใช้งาน Google Signals การรายงานข้อมูลประชากร คุณสมบัติด้านโฆษณา หรือการเชื่อมโยง User-ID ใด ๆ",
           "ท่านสามารถตรวจสอบการสื่อสารติดตามขาออกได้โดยตรง เปิดเครื่องมือพัฒนาในเบราว์เซอร์ของท่าน เลือกแท็บ Network โหลดหน้าใดของเว็บไซต์นี้ใหม่ จะปรากฏคำขอไปยัง googletagmanager.com (คอนเทนเนอร์) และ google-analytics.com (ปลายทางสัญญาณ) ที่เหลือคือ cabinetofshadows.me เอง หรือ Vercel ที่ส่งมอบเนื้อหามาให้ท่าน",
           "ประกาศฉบับก่อนกล่าวว่าเว็บไซต์นี้ไม่โหลดเครื่องมือเก็บสถิติใดเลย ข้อความนั้นไม่ตรงต่อความจริงอีกต่อไป และเราอธิบายการเปลี่ยนแปลงไว้ด้านล่าง",
+        ],
+      },
+      {
+        heading: "ผู้ควบคุมข้อมูล ฐานทางกฎหมาย และระยะเวลาเก็บรักษา",
+        paragraphs: [
+          "เพื่อวัตถุประสงค์ของ EU General Data Protection Regulation (GDPR), UK GDPR, Lei Geral de Proteção de Dados (LGPD) ของบราซิล, Personal Data Protection Act (PDPA) ของไทย และ PIPEDA ของแคนาดา ผู้ควบคุมข้อมูลของเว็บไซต์นี้คือ Frank Caules ติดต่อได้ที่ frank.caules@gmail.com เว็บไซต์นี้ดำเนินการในฐานะสิ่งพิมพ์ส่วนบุคคล มิใช่เชิงพาณิชย์ ไม่มีนิติบุคคลใดอยู่เบื้องหลัง และไม่มีข้อตกลงผู้ควบคุมร่วม",
+          "ฐานทางกฎหมายที่เราใช้ในการประมวลผลข้อมูลส่วนบุคคลจำนวนน้อยที่ไหลผ่านเว็บไซต์นี้คือประโยชน์อันชอบธรรม (legitimate interest) ตาม GDPR มาตรา 6(1)(f) และบทบัญญัติที่เทียบเท่า ประโยชน์อันชอบธรรมคือการดำเนินงานและปรับปรุงแฟ้มคดีงานเขียนวิทยาศาสตร์ต้นฉบับที่อ่านได้โดยเสรี ยอดเข้าชมหน้าแบบนิรนามรวมช่วยให้เราเห็นว่าเอกสารคดีใดถูกอ่านบ้าง ซึ่งกำหนดลำดับความสำคัญของงานแปลและบรรณานุกรม ไม่มีการประมวลผลข้อมูลส่วนบุคคลเพื่อการตลาด การจำแนกบุคคล การโฆษณา การขาย หรือการเปิดเผยต่อบุคคลอื่น",
+          "ระยะเวลาเก็บรักษา การเก็บข้อมูลผู้ใช้ของ GA4 ตั้งไว้ที่สิบสี่ (14) เดือน หลังจากนั้นข้อมูลระดับเหตุการณ์จะถูกลบโดยอัตโนมัติจากระบบของ Google คุกกี้ปฐมภูมิ _ga หมดอายุหลังไม่มีการเข้าชมซ้ำเป็นเวลาสองปี บันทึกคำขอของ Vercel (ซึ่งบรรจุที่อยู่ IP ของท่านตามเวลามาตรฐานที่จำเป็นในการส่งมอบหน้าเว็บ) อยู่ภายใต้นโยบายความเป็นส่วนตัวของ Vercel เองที่ vercel.com/legal/privacy-policy เราไม่ได้เก็บสำเนา เราไม่มีข้อมูลส่วนบุคคลใดในอุปกรณ์ใดที่อยู่ภายใต้การควบคุมของเรา",
+          "การตัดสินใจอัตโนมัติ ไม่มี เราไม่ได้จำแนกผู้อ่าน ไม่ได้ให้คะแนน ไม่ได้ตัดสินใจอัตโนมัติใดที่ก่อให้เกิดผลทางกฎหมายหรือผลกระทบสำคัญในทำนองเดียวกันต่อท่าน (GDPR มาตรา 22 และบทบัญญัติที่เทียบเท่า)",
         ],
       },
       {
@@ -158,9 +195,28 @@ const COPY: Record<Locale, PrivacyCopy> = {
         ],
       },
       {
+        heading: "การส่งข้อมูลข้ามประเทศ",
+        paragraphs: [
+          "Vercel ดำเนินเครือข่ายส่งมอบเนื้อหา (CDN) ระดับโลก พร้อมโหนดขอบในหลายประเทศ ไบต์ของหน้านี้อาจมาถึงท่านจากเซิร์ฟเวอร์ในสหรัฐอเมริกา สหภาพยุโรป สิงคโปร์ หรือที่อื่น ขึ้นอยู่กับที่ตั้งของท่าน Vercel เป็นบริษัทสหรัฐอเมริกา สำหรับผู้อ่านในสหราชอาณาจักร เขตเศรษฐกิจยุโรป สวิตเซอร์แลนด์ บราซิล และเขตอำนาจอื่นที่มีกฎเรื่องการส่งข้อมูลข้ามพรมแดน การประมวลผลข้อมูลของ Vercel อยู่ภายใต้ Standard Contractual Clauses (หรือเทียบเท่าในประเทศ) ตามที่ระบุในข้อตกลงประมวลผลข้อมูลของบริษัท",
+          "Google Analytics 4 ประมวลผลข้อมูลในสหรัฐอเมริกา สำหรับผู้อ่านในเขตเศรษฐกิจยุโรป สหราชอาณาจักร และสวิตเซอร์แลนด์ Google ดำเนินการภายใต้ EU-US Data Privacy Framework (DPF), UK Extension to the DPF และ Swiss-US DPF — การตัดสินใจเรื่องความเพียงพอในปัจจุบันที่ออกโดยคณะกรรมาธิการยุโรปและคณะกรรมาธิการคุ้มครองข้อมูลและข้อมูลสารสนเทศแห่งสหพันธรัฐสวิส — เสริมด้วย Standard Contractual Clauses ตามที่กำหนด เงื่อนไขที่เกี่ยวข้องและมาตรการเสริมของ Google มีระบุไว้ที่ business.safety.google/adscontrollerterms และ policies.google.com/privacy/frameworks",
+          "หากท่านประสงค์ว่ามิให้มีการส่งข้อมูลไปยังฝ่ายใด ตัวบล็อกเนื้อหา GPC/DNT, Google Analytics opt-out add-on อย่างเป็นทางการ หรือ VPN / Tor จะป้องกันการส่งข้อมูลไปยัง GA4 ได้อย่างน่าเชื่อถือ มีเพียงการส่งข้อมูลผ่าน CDN ของ Vercel เท่านั้น (ซึ่งจำเป็นต่อการส่งหน้าเว็บไปให้ท่าน) ที่หลีกเลี่ยงไม่ได้ขณะอ่านเว็บไซต์นี้",
+        ],
+      },
+      {
+        heading: "สิทธิของท่านภายใต้กฎหมายระหว่างประเทศ",
+        paragraphs: [
+          "ไม่ว่าท่านจะอ่านจากที่ใด กฎหมายคุ้มครองข้อมูลในเขตอำนาจของท่านอาจมอบสิทธิให้ท่านเหนือข้อมูลส่วนบุคคลที่เราประมวลผลเกี่ยวกับท่าน เนื่องจากเราเก็บข้อมูลน้อยมาก — โดยพื้นฐานคือยอดเข้าชม GA4 แบบนิรนาม บวกกับเมตาดาตาระดับ CDN ที่ Vercel จัดการเพื่อส่งหน้าเว็บ — สิทธิเหล่านี้ส่วนใหญ่จึงได้รับการตอบสนองอย่างง่าย เรารายการไว้ที่นี่เพื่อให้ท่านทราบว่ามีอยู่ และจะใช้สิทธิเหล่านั้นอย่างไร",
+          "ภายใต้ GDPR และ UK GDPR (ผู้อ่านในสหภาพยุโรป เขตเศรษฐกิจยุโรป สหราชอาณาจักร และสวิตเซอร์แลนด์) ท่านมีสิทธิ: เข้าถึงข้อมูลส่วนบุคคลที่เราเก็บเกี่ยวกับท่าน (มาตรา 15), แก้ไขข้อมูลที่ไม่ถูกต้อง (มาตรา 16), ลบข้อมูล (\"สิทธิที่จะถูกลืม\", มาตรา 17), จำกัดการประมวลผล (มาตรา 18), รับข้อมูลในรูปแบบที่สามารถถ่ายโอนได้ (มาตรา 20), คัดค้านการประมวลผลที่อยู่บนฐานประโยชน์อันชอบธรรม (มาตรา 21) และไม่ตกอยู่ภายใต้การตัดสินใจอัตโนมัติเพียงอย่างเดียวที่มีผลทางกฎหมายหรือผลกระทบสำคัญในทำนองเดียวกัน (มาตรา 22)",
+          "ภายใต้ CCPA และ CPRA (ผู้อาศัยในแคลิฟอร์เนีย) ท่านมีสิทธิ: ทราบว่าเราเก็บ ใช้ เปิดเผย และแบ่งปันข้อมูลส่วนบุคคลใดบ้าง; ลบข้อมูลส่วนบุคคลที่เราเก็บเกี่ยวกับท่าน โดยมีข้อยกเว้นจำกัด; แก้ไขข้อมูลส่วนบุคคลที่ไม่ถูกต้อง; จำกัดการใช้และเปิดเผยข้อมูลส่วนบุคคล \"ที่อ่อนไหว\" (เราไม่ได้เก็บ); ปฏิเสธการ \"ขาย\" หรือ \"แบ่งปัน\" ข้อมูลส่วนบุคคล (เราไม่ทำทั้งสองและไม่เคยทำ); และไม่ถูกเลือกปฏิบัติเมื่อใช้สิทธิเหล่านี้ ประเภทของข้อมูลส่วนบุคคลที่ GA4 อาจเก็บแทนเราคือตัวระบุ (ที่อยู่ IP ที่ถูกตัดให้สั้นตั้งแต่ขั้นการเก็บ) และข้อมูลกิจกรรมอินเทอร์เน็ต (URL ที่เข้าชม ผู้อ้างถึง ระยะเวลาเซสชันโดยประมาณ) เราไม่ขายหรือแบ่งปันข้อมูลส่วนบุคคลตามที่นิยามไว้ในกฎหมายแคลิฟอร์เนีย",
+          "ภายใต้ LGPD (ผู้อ่านในบราซิล) ท่านมีสิทธิตามที่ระบุในมาตรา 18: ยืนยันการประมวลผล เข้าถึง แก้ไข ทำให้นิรนามหรือลบ ถ่ายโอนได้ ข้อมูลเกี่ยวกับผู้ที่ข้อมูลถูกแบ่งปัน และเพิกถอนความยินยอม ภายใต้ PDPA (ผู้อ่านในประเทศไทย) ท่านมีสิทธิตามที่ระบุในมาตรา 30-37: เข้าถึง แก้ไข ลบ จำกัด ถ่ายโอนได้ คัดค้าน และเพิกถอนความยินยอม ภายใต้ PIPEDA (ผู้อ่านในแคนาดา) ท่านมีสิทธิเข้าถึงและแก้ไขข้อมูลส่วนบุคคลของท่าน และท้าทายการปฏิบัติตามของเรา",
+          "หากต้องการใช้สิทธิเหล่านี้ กรุณาเขียนถึง frank.caules@gmail.com พร้อมหัวข้อ [privacy request] บอกเราว่าท่านกำลังใช้สิทธิใด และหากเป็นไปได้ ข้อมูลที่เพียงพอให้เราระบุข้อมูลที่ท่านหมายถึง (สำหรับ GA4 โดยทั่วไปคืออุปกรณ์หรือเบราว์เซอร์ที่ท่านใช้อ่าน และวันที่โดยประมาณ) เราจะตอบกลับภายในสามสิบ (30) วัน สำหรับคำร้องที่ต้องอาศัยความร่วมมือของ Google เราจะส่งต่อให้ Google แทนท่านและเขียนกลับมาพร้อมผลลัพธ์",
+          "หากท่านเชื่อว่าเราได้จัดการข้อมูลส่วนบุคคลของท่านโดยมิชอบ ท่านมีสิทธิยื่นเรื่องร้องเรียนต่อหน่วยงานกำกับดูแล ผู้อ่านในสหภาพยุโรปสามารถร้องเรียนต่อหน่วยงานคุ้มครองข้อมูลในประเทศที่อยู่อาศัย (European Data Protection Board มีรายการปัจจุบันที่ edpb.europa.eu/about-edpb/about-edpb/members_en) ผู้อ่านในสหราชอาณาจักรสามารถร้องเรียนต่อ Information Commissioner's Office ที่ ico.org.uk ผู้อ่านในบราซิลร้องเรียนต่อ ANPD ที่ gov.br/anpd ผู้อ่านในประเทศไทยร้องเรียนต่อสำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคลที่ pdpc.or.th ผู้อ่านในแคนาดาร้องเรียนต่อ Office of the Privacy Commissioner of Canada ที่ priv.gc.ca ผู้อ่านในแคลิฟอร์เนียร้องเรียนต่อ California Privacy Protection Agency ที่ cppa.ca.gov",
+        ],
+      },
+      {
         heading: "เด็ก",
         paragraphs: [
-          "ตู้แห่งเงาเป็นงานเขียนวิทยาศาสตร์ยาวว่าด้วยวรรณกรรมกอธิคคลาสสิกและจิตวิทยาคลินิกร่วมสมัย มิได้มุ่งเป้าไปที่เด็ก แต่ก็ไม่มีเนื้อหาใดที่ไม่เหมาะสำหรับเด็กโตจะอ่าน เราไม่จงใจเก็บข้อมูลที่ระบุตัวบุคคลจากผู้ใด ซึ่งย่อมรวมถึงเด็กด้วย ดังนั้นประเด็นเรื่อง COPPA จึงไม่ปรากฏที่นี่",
+          "ตู้แห่งเงาเป็นงานเขียนวิทยาศาสตร์ยาวว่าด้วยวรรณกรรมกอธิคคลาสสิกและจิตวิทยาคลินิกร่วมสมัย มิได้มุ่งเป้าไปที่เด็ก แต่ก็ไม่มีเนื้อหาใดที่ไม่เหมาะสำหรับเด็กโตจะอ่าน เราไม่จงใจเก็บข้อมูลที่ระบุตัวบุคคลจากผู้ใด ซึ่งย่อมรวมถึงเด็กอายุต่ำกว่าสิบสามปีตามวัตถุประสงค์ของ COPPA ของสหรัฐอเมริกา เด็กอายุต่ำกว่าสิบหกปีตามฐานของ GDPR มาตรา 8 (ขึ้นอยู่กับการปรับเปลี่ยนของรัฐสมาชิกระหว่างสิบสามถึงสิบหก) และเกณฑ์ที่เทียบเท่าภายใต้ LGPD, PDPA, และ PIPEDA หากท่านเป็นบิดามารดาหรือผู้ปกครองที่เชื่อว่าเราได้เก็บข้อมูลจากเด็กโดยไม่ตั้งใจ กรุณาเขียนถึง frank.caules@gmail.com แล้วเราจะตรวจสอบและลบให้",
         ],
       },
       {
